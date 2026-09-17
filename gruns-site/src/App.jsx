@@ -4,11 +4,16 @@ import HomePage from "./pages/HomePage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import CollectionPage from "./pages/CollectionPage.jsx";
 import PagesRoute from "./pages/PagesRoute.jsx";
+import FirstOrder from "./pages/FirstOrder.jsx";
+import HelpCenter from "./pages/HelpCenter.jsx";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/pages/first-order" element={<FirstOrder />} />
+        <Route path="/pages/help-center" element={<HelpCenter />} />
+        <Route path="/pages/faq" element={<HelpCenter />} />
         <Route element={<SiteLayout />}>
           <Route index element={<HomePage />} />
           <Route path="products">
