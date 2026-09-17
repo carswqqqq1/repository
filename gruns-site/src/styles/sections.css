@@ -1,0 +1,832 @@
+/* Homepage section bands, top → bottom, mirroring gruns.co:
+   hero → press → find your flavor → value props → benefits scroll →
+   3rd-party testing → buy box → cta banner → social fan → final cta. */
+
+.site-main {
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   Hero — "60+ Ingredients in One Pack You'll Actually Crave"
+   ========================================================================== */
+.hero {
+  background: var(--color-neutral-off-white);
+  padding-top: 76px;
+  padding-bottom: 40px;
+}
+.hero__inner {
+  display: grid;
+  gap: 24px;
+  max-width: 1440px;
+}
+@media (min-width: 900px) {
+  .hero {
+    padding-top: 75px;
+    padding-bottom: 72px;
+  }
+  .hero__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
+    padding-inline: clamp(20px, 5.6vw, 80px);
+  }
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  order: 2;
+}
+@media (min-width: 900px) {
+  .hero__copy {
+    order: 1;
+  }
+}
+
+.hero__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-ink);
+}
+.hero__rating .stars {
+  color: var(--color-green);
+}
+.hero__rating strong {
+  font-weight: 700;
+}
+
+.hero__headline {
+  margin-top: 14px;
+  font-size: clamp(2rem, 3.9vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+.hero__cta {
+  margin-top: 22px;
+  width: 100%;
+  max-width: 420px;
+  font-size: 1.125rem;
+}
+@media (min-width: 900px) {
+  .hero__cta {
+    width: 280px;
+  }
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 12px;
+  color: var(--color-fg-secondary);
+}
+.hero__trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.hero__trust svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.hero__props {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.hero__props li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero__prop-value {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+}
+.hero__prop-blob {
+  position: absolute;
+  inset: 0;
+  background: var(--color-yellow);
+  border-radius: 48% 52% 55% 45% / 52% 45% 55% 48%;
+}
+.hero__prop-number {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-ink);
+}
+.hero__prop-sup {
+  font-size: 0.7em;
+}
+.hero__prop-label {
+  margin: 8px 0 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.hero__prop-note {
+  margin: 3px 0 0;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+
+.hero__media {
+  position: relative;
+  order: 1;
+}
+@media (min-width: 900px) {
+  .hero__media {
+    order: 2;
+  }
+}
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 620 / 463;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+.hero__badge {
+  position: absolute;
+  top: 12px;
+  left: 6px;
+  z-index: 2;
+  width: 92px;
+  height: auto;
+}
+@media (min-width: 900px) {
+  .hero__badge {
+    top: 16px;
+    left: -30px;
+    width: 148px;
+  }
+}
+
+/* ==========================================================================
+   Press marquee
+   ========================================================================== */
+.press {
+  background: var(--color-neutral-off-white);
+  padding-block: 20px;
+  overflow: hidden;
+}
+.press__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+  width: max-content;
+  animation: press-scroll 38s linear infinite;
+}
+.press__item {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+.press__item img {
+  height: 30px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+@keyframes press-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .press__track {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Find Your Flavor
+   ========================================================================== */
+.fave {
+  background: var(--color-neutral-off-white);
+  padding-block: 32px 56px;
+}
+.fave__heading {
+  color: var(--color-green);
+  text-align: center;
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  margin-bottom: 28px;
+}
+.fave__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 900px) {
+  .fave__grid {
+    grid-template-columns: repeat(4, minmax(0, 260px));
+    justify-content: center;
+    gap: 16px;
+  }
+}
+.fave-card {
+  display: flex;
+  flex-direction: column;
+}
+.fave-card__media {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--color-green-weakest);
+}
+.fave-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fave-card__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.fave-card__title {
+  margin: 12px 0 4px;
+  color: var(--color-ink);
+}
+.fave-card__price {
+  margin: 0 0 12px;
+  color: var(--color-ink);
+}
+.fave-card__price strong {
+  font-weight: 600;
+}
+.fave-card__compare {
+  color: var(--color-fg-tertiary);
+  text-decoration: line-through;
+}
+.fave-card__cta {
+  height: 40px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-green);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.fave-card__cta:hover {
+  background: var(--color-green-strong);
+}
+.fave-card__link {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Value props — "We made daily nutrition, like, ridiculously easy."
+   ========================================================================== */
+.vprops {
+  background: var(--color-green);
+  color: #fff;
+  padding-block: 56px 64px;
+}
+.vprops__inner {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+.vprops__heading {
+  max-width: 864px;
+  margin: 0 auto 36px;
+  text-align: center;
+  color: #fff;
+  font-size: clamp(2rem, 4.45vw, 4rem);
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+.vprops__heading strong {
+  font-weight: inherit;
+  color: var(--color-yellow);
+}
+.vprops__cards {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 900px) {
+  .vprops__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+.vprop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  color: var(--color-ink);
+  padding: 8px 8px 26px;
+  text-align: center;
+}
+.vprop-card__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+.vprop-card h3 {
+  margin: 18px 0 8px;
+  color: var(--color-ink);
+}
+.vprop-card__copy {
+  margin: 0;
+  padding-inline: 18px;
+  max-width: 34ch;
+  color: var(--color-fg-secondary);
+}
+
+/* ==========================================================================
+   Benefits scroll — green→yellow gradient with floating gummies + sachet
+   ========================================================================== */
+.benefits {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-green) 0%, var(--color-green) 50%, #7cb02c 68%, var(--color-yellow) 86%, var(--color-yellow) 100%);
+  padding-top: clamp(96px, 26vw, 380px);
+  overflow: hidden;
+}
+.benefits__words {
+  position: relative;
+  z-index: 2;
+  max-width: calc(1120px + 2 * var(--page-gutter));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+  text-align: center;
+}
+.benefits__line {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.7vw, 6rem);
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  /* the live site lets these lines run past the viewport on narrow screens */
+  white-space: nowrap;
+  margin: 0;
+}
+.benefits__line:last-child {
+  color: var(--color-yellow);
+}
+.benefits__gummy {
+  position: absolute;
+  width: clamp(64px, 8vw, 116px);
+  height: auto;
+  z-index: -1;
+}
+.benefits__gummy--left {
+  left: 2%;
+  top: 38%;
+  transform: rotate(-16deg);
+}
+.benefits__gummy--right {
+  right: 3%;
+  top: -12%;
+  transform: rotate(14deg);
+}
+
+.benefits__packet {
+  position: relative;
+  z-index: 1;
+  margin: clamp(32px, 6vw, 80px) auto 0;
+  width: min(94%, 620px);
+  aspect-ratio: 1 / 1.15;
+}
+.benefits__sachet-back,
+.benefits__sachet-front,
+.benefits__bear {
+  position: absolute;
+  display: block;
+}
+.benefits__sachet-back {
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.benefits__bear {
+  left: 50%;
+  top: -3%;
+  width: 17%;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.benefits__sachet-front {
+  left: 0;
+  right: 0;
+  top: 7%;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+}
+.benefits__fade {
+  display: none;
+}
+
+/* ==========================================================================
+   3rd party-tested band
+   ========================================================================== */
+.tested {
+  background: #00381d;
+  color: #fff;
+  padding-block: 48px;
+}
+.tested__inner {
+  display: grid;
+  gap: 28px;
+}
+@media (min-width: 900px) {
+  .tested__inner {
+    grid-template-columns: minmax(0, 555px) minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+  }
+}
+.tested__heading {
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+}
+.tested__sub {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 42ch;
+  font-size: 0.875rem;
+}
+.tested__callouts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 640px) {
+  .tested__callouts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.tested__callouts li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 22px 12px 18px;
+  text-align: center;
+  min-height: 132px;
+}
+.tested__icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.tested__callouts p {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+.tested__callouts strong {
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Promo duo — full-width yellow band with paired cards
+   ========================================================================== */
+.promo-duo-band {
+  background: var(--color-yellow);
+  padding-block: clamp(20px, 4vw, 36px);
+}
+.promo-duo-band__grid {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 768px) {
+  .promo-duo-band__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+.promo-duo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 40px);
+  min-height: 220px;
+}
+.promo-duo-card p {
+  margin: 0;
+  text-wrap: balance;
+}
+.promo-duo-card--green {
+  background: var(--color-green);
+  color: #fff;
+}
+.promo-duo-card--cream {
+  background: var(--color-off-white);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   CTA banner — full-width yellow band ("Same Grüns. New Lower Price.")
+   ========================================================================== */
+.ctabanner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-yellow);
+  isolation: isolate;
+}
+.ctabanner__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.ctabanner__inner {
+  display: grid;
+  gap: 12px;
+  align-items: end;
+  padding-block: 40px 0;
+}
+@media (min-width: 900px) {
+  .ctabanner__inner {
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+    align-items: center;
+    padding-block: 0;
+    min-height: 380px;
+  }
+}
+.ctabanner__copy {
+  padding-bottom: 28px;
+}
+@media (min-width: 900px) {
+  .ctabanner__copy {
+    padding-block: 56px;
+  }
+}
+.ctabanner__heading {
+  max-width: 600px;
+  color: var(--color-green-strong);
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  text-wrap: balance;
+  margin-bottom: 14px;
+}
+.ctabanner__body {
+  color: var(--color-ink);
+  max-width: 44ch;
+  margin-bottom: 20px;
+}
+.ctabanner__cta {
+  height: 48px;
+  min-height: 48px;
+  padding-inline: 28px;
+  font-size: 1rem;
+}
+.ctabanner__media {
+  align-self: end;
+  justify-self: center;
+  width: min(100%, 360px);
+}
+.ctabanner__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 900px) {
+  .ctabanner__media {
+    justify-self: end;
+    width: min(100%, 560px);
+    margin-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Social fan — "1 million members, we've been getting around"
+   ========================================================================== */
+.socialfan {
+  background: var(--color-neutral-off-white);
+  padding-top: 52px;
+  overflow: hidden;
+  position: relative;
+}
+.socialfan__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-inline: var(--page-gutter);
+}
+.socialfan__heading {
+  max-width: 880px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 6.1vw, 5.5rem);
+  line-height: 0.8;
+  text-transform: uppercase;
+  color: #0a1912;
+  text-wrap: balance;
+}
+.socialfan__wordmark {
+  display: block;
+  width: min(92vw, 420px);
+  height: auto;
+  margin: 28px auto 0;
+  opacity: 0.92;
+}
+.socialfan__heading strong {
+  display: block;
+  font-weight: inherit;
+  color: var(--color-green);
+}
+.socialfan__links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.socialfan__chip {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--color-green);
+  color: var(--color-yellow);
+  transition: transform 0.2s ease;
+}
+.socialfan__chip svg {
+  width: 20px;
+  height: 20px;
+}
+.socialfan__chip:hover {
+  transform: translateY(-2px);
+}
+
+.socialfan__fan {
+  position: relative;
+  height: clamp(200px, 27vw, 380px);
+  margin-top: 26px;
+}
+.socialfan__orbit {
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  width: clamp(96px, 12.5vw, 178px);
+  transform-origin: 50% 190%;
+  transform: translateX(-50%) rotate(var(--angle));
+}
+.socialfan__orbit img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 31, 16, 0.18);
+}
+
+/* ==========================================================================
+   Final CTA — gradient panel
+   ========================================================================== */
+.finalcta {
+  background: var(--color-green-strong);
+  padding-block: 0 56px;
+}
+.finalcta__panel {
+  position: relative;
+  display: grid;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(100deg, var(--color-green) 0%, var(--color-green) 34%, #8cb62a 62%, var(--color-yellow) 100%);
+}
+@media (min-width: 900px) {
+  .finalcta__panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+}
+.finalcta__copy {
+  padding: 36px 28px;
+  color: #fff;
+}
+@media (min-width: 900px) {
+  .finalcta__copy {
+    padding: 48px 20px 48px 52px;
+  }
+}
+.finalcta__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+.finalcta__heading {
+  max-width: 520px;
+  margin: 12px 0 18px;
+  color: #fff;
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  text-wrap: balance;
+}
+.finalcta__points {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.finalcta__points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+.finalcta__points svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.finalcta__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.finalcta__media {
+  position: relative;
+  align-self: end;
+}
+.finalcta__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

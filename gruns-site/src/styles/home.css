@@ -1,0 +1,341 @@
+/* Homepage styles — scoped to #home-page-root so PDP/shop agents are unaffected.
+   Bands top→bottom: hero game / product carousel / easy / stats /
+   gradient / trust / birthday buy-box / promos / members. */
+
+#home-page-root { background: var(--gruns-cream); color: var(--gruns-ink); font-family: var(--font-body); }
+#home-page-root .home { background: var(--gruns-cream); }
+
+/* ---------- buttons ---------- */
+#home-page-root .btn {
+  font-family: var(--font-display);
+  border: 0; cursor: pointer; border-radius: var(--radius-pill);
+  padding: 12px 26px; font-size: 15px; letter-spacing: 0.01em;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+#home-page-root .btn:active { transform: translateY(1px) scale(0.99); }
+#home-page-root .btn--green { background: var(--gruns-green); color: #fff; }
+#home-page-root .btn--green:hover { background: var(--gruns-green-deep); }
+#home-page-root .btn--dark { background: var(--gruns-ink); color: #fff; }
+#home-page-root .btn--yellow { background: var(--gruns-yellow); color: var(--gruns-ink); }
+#home-page-root .btn--sm { padding: 9px 20px; font-size: 13px; }
+#home-page-root .btn--xl { padding: 16px 26px; font-size: 17px; }
+#home-page-root .btn--block { width: 100%; }
+#home-page-root .btn--ghost {
+  background: #fff; color: var(--gruns-ink); border: 1.5px solid var(--gruns-ink);
+  margin-top: 14px; font-size: 14px;
+}
+#home-page-root .linklike { background: none; border: 0; color: #fff; text-decoration: underline; cursor: pointer; font-size: inherit; }
+
+/* ---------- wordmark (hero game only) ---------- */
+#home-page-root .wordmark {
+  font-family: var(--font-display); font-weight: 900; font-size: 34px;
+  color: var(--gruns-green); text-decoration: none; letter-spacing: -0.03em;
+  font-style: italic;
+}
+#home-page-root .wordmark-reg { font-size: 12px; vertical-align: super; font-style: normal; }
+#home-page-root .wordmark--game { font-size: 40px; }
+
+/* ---------- hero / game ---------- */
+#home-page-root .hero {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  min-height: 560px; position: relative; overflow: hidden;
+  background: linear-gradient(115deg, #fdf4dc 0%, #f7e9bd 42%, #bcd65a 72%, #1d8a2f 100%);
+}
+#home-page-root .hero-art { position: relative; overflow: hidden; min-height: 480px; }
+#home-page-root .hero-blob {
+  position: absolute; left: 6%; bottom: -12%; width: 78%; height: 88%;
+  background: var(--gruns-yellow);
+  border-radius: 46% 54% 52% 48% / 58% 60% 40% 42%;
+}
+#home-page-root .hero-person { position: absolute; left: 12%; bottom: 0; width: 300px; height: 400px; }
+#home-page-root .hero-hair {
+  position: absolute; left: 30px; top: 30px; width: 240px; height: 330px;
+  background: linear-gradient(180deg, #5b2f1d, #3c1f12);
+  border-radius: 120px 120px 60px 60px; z-index: 0;
+}
+#home-page-root .hero-shoulders {
+  position: absolute; left: 10px; bottom: 0; width: 280px; height: 170px;
+  background: linear-gradient(180deg, #f4ede1, #e2d5bd);
+  border-radius: 120px 120px 0 0; z-index: 1;
+}
+#home-page-root .hero-face {
+  position: absolute; left: 75px; top: 120px; width: 150px; height: 170px;
+  background: #f3c39d; border-radius: 70px 70px 90px 90px; z-index: 2;
+}
+#home-page-root .eye { position: absolute; top: 62px; width: 12px; height: 12px; background: #222; border-radius: 50%; }
+#home-page-root .eye--l { left: 34px; }
+#home-page-root .eye--r { right: 34px; }
+#home-page-root .smile {
+  position: absolute; left: 45px; top: 100px; width: 60px; height: 30px;
+  border: 5px solid #7a2d12; border-top: 0; border-radius: 0 0 40px 40px;
+  background: #fff;
+}
+#home-page-root .hero-pack {
+  position: absolute; left: 90px; bottom: 60px; width: 120px; height: 130px; z-index: 3;
+  background: linear-gradient(160deg, #12a14a, #0a5c2e);
+  border-radius: 10px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px; color: var(--gruns-yellow);
+  transform: rotate(-12deg); box-shadow: var(--shadow-card);
+  border: 2px solid var(--gruns-yellow);
+}
+#home-page-root .hero-pack-bear { font-size: 30px; }
+#home-page-root .hero-pack-word { font-family: var(--font-display); font-weight: 900; font-style: italic; }
+#home-page-root .spark { position: absolute; color: var(--gruns-yellow-deep); font-size: 30px; }
+#home-page-root .spark--1 { left: 4%; bottom: 12%; }
+#home-page-root .spark--2 { top: 8%; left: 42%; }
+#home-page-root .spark--3 { top: 30%; right: 8%; }
+#home-page-root .gummy { position: absolute; width: 54px; height: 66px; background: radial-gradient(circle at 30% 25%, #3f7a4d, #122e1b); border-radius: 22px; opacity: 0.95; }
+#home-page-root .gummy::after {
+  content: ""; position: absolute; left: 12px; top: 10px; width: 14px; height: 20px;
+  background: rgba(255, 255, 255, 0.35); border-radius: 50%; transform: rotate(-18deg);
+}
+#home-page-root .gummy i { position: absolute; background: inherit; border-radius: 50%; }
+#home-page-root .gummy i:nth-child(1) { width: 20px; height: 20px; left: -8px; top: 8px; }
+#home-page-root .gummy i:nth-child(2) { width: 20px; height: 20px; right: -8px; top: 8px; }
+#home-page-root .gummy i:nth-child(3) { width: 24px; height: 24px; left: 6px; bottom: -10px; }
+#home-page-root .gummy--1 { top: 4%; left: 12%; transform: rotate(-18deg); }
+#home-page-root .gummy--2 { top: 26%; right: 6%; transform: rotate(14deg) scale(1.15); }
+#home-page-root .gummy--3 { top: 38%; left: -14px; transform: rotate(30deg) scale(1.3); }
+
+#home-page-root .hero-game {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 34px 30px 40px; text-align: center;
+}
+#home-page-root .timer {
+  background: var(--gruns-green); color: #fff; font-family: var(--font-display);
+  border-radius: var(--radius-pill); padding: 5px 18px; font-size: 18px; margin: 8px 0 10px;
+}
+#home-page-root .hero-title { font-family: var(--font-display); font-size: 40px; margin: 0; letter-spacing: -0.02em; color: var(--gruns-ink); }
+#home-page-root .hero-sub { margin: 4px 0 18px; font-size: 14px; }
+#home-page-root .card-grid { display: grid; grid-template-columns: repeat(3, 74px); gap: 10px; }
+#home-page-root .card {
+  width: 74px; height: 96px; perspective: 600px; background: none; border: 0; cursor: pointer; padding: 0;
+}
+#home-page-root .card-inner {
+  position: relative; display: block; width: 100%; height: 100%;
+  transition: transform 0.35s; transform-style: preserve-3d;
+}
+#home-page-root .card.is-up .card-inner { transform: rotateY(180deg); }
+#home-page-root .card-face {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  backface-visibility: hidden; border-radius: 10px; font-family: var(--font-display);
+  border: 2px solid var(--gruns-green); box-shadow: 0 3px 10px rgba(6, 60, 30, 0.22);
+}
+#home-page-root .card-back { background: #fff; color: var(--gruns-green); font-size: 24px; }
+#home-page-root .card-front {
+  background: var(--gruns-green); color: #fff; font-size: 11px; padding: 6px;
+  transform: rotateY(180deg); text-align: center; line-height: 1.2;
+}
+#home-page-root .card.is-win .card-front { background: var(--gruns-yellow); color: var(--gruns-ink); border-color: var(--gruns-ink); }
+#home-page-root .game-status { margin-top: 14px; font-size: 13.5px; min-height: 22px; }
+#home-page-root .win-banner {
+  background: var(--gruns-green-dark); color: #fff; padding: 8px 16px;
+  border-radius: var(--radius-pill); font-weight: 700;
+}
+
+/* ---------- shop carousel ---------- */
+#home-page-root .shop { max-width: var(--page-max); margin: 0 auto; padding: 26px 28px 10px; text-align: center; }
+#home-page-root .rating-row { display: flex; gap: 10px; justify-content: center; align-items: center; font-size: 13px; }
+#home-page-root .stars { color: var(--gruns-green); letter-spacing: 2px; }
+#home-page-root .shop-title { font-family: var(--font-display); font-size: 30px; margin: 8px 0 18px; }
+#home-page-root .carousel {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; text-align: left;
+}
+#home-page-root .product-card { display: flex; flex-direction: column; }
+#home-page-root .product-media {
+  border-radius: var(--radius-md); min-height: 250px; position: relative;
+  display: flex; align-items: center; justify-content: center; padding: 22px;
+}
+#home-page-root .product-tag {
+  position: absolute; top: 10px; left: 10px; background: var(--gruns-yellow);
+  font-family: var(--font-display); font-size: 11px; padding: 3px 10px; border-radius: var(--radius-pill);
+}
+#home-page-root .pack {
+  width: 150px; min-height: 190px; border-radius: 12px; padding: 12px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  color: var(--gruns-yellow); text-align: center; box-shadow: var(--shadow-card);
+}
+#home-page-root .pack--green { background: linear-gradient(165deg, #17a84e, #073d20); border: 2px solid rgba(255,255,255,0.25); }
+#home-page-root .pack--shrek { background: linear-gradient(165deg, #8e2f9e, #0a5c2e); border: 2px solid rgba(255,255,255,0.3); }
+#home-page-root .pack--kids { background: linear-gradient(165deg, #f2b234, #e0873a); border: 2px solid #fff; color: #0a5c2e; }
+#home-page-root .pack--shrekkids { background: linear-gradient(165deg, #8e2f9e, #3f7a2d); border: 2px solid #fff; }
+#home-page-root .pack-badge { font-size: 9px; font-weight: 800; letter-spacing: 0.06em; }
+#home-page-root .pack-word { font-family: var(--font-display); font-size: 30px; font-weight: 900; font-style: italic; line-height: 1; }
+#home-page-root .pack-sub { font-size: 9px; line-height: 1.3; opacity: 0.9; }
+#home-page-root .pack-bear { font-size: 34px; margin-top: auto; }
+#home-page-root .product-name { font-size: 15px; margin: 12px 0 2px; }
+#home-page-root .product-price { font-size: 13px; margin: 0 0 10px; }
+#home-page-root .product-price s { color: var(--gruns-muted); margin-left: 4px; }
+#home-page-root .learn-more { text-align: center; font-size: 12px; color: var(--gruns-ink); margin-top: 6px; }
+
+/* ---------- easy section ---------- */
+#home-page-root .easy { background: var(--gruns-green); color: #fff; margin-top: 26px; padding: 56px 28px 30px; text-align: center; }
+#home-page-root .easy-title { font-family: var(--font-display); font-size: clamp(30px, 4.6vw, 52px); line-height: 1.08; margin: 0 0 30px; letter-spacing: -0.01em; }
+#home-page-root .easy-title .hl { color: var(--gruns-yellow); }
+#home-page-root .easy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: var(--page-max); margin: 0 auto; }
+#home-page-root .easy-card { background: #fff; color: var(--gruns-ink); border-radius: var(--radius-lg); overflow: hidden; padding-bottom: 22px; }
+#home-page-root .easy-art { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+#home-page-root .easy-art--flavor { background: linear-gradient(180deg, #f6d9a0, #e8a34c); }
+#home-page-root .easy-art--rip { background: linear-gradient(180deg, #3a3a3a, #101010); }
+#home-page-root .easy-art--daily { background: linear-gradient(180deg, #17a84e, #0a5c2e); }
+#home-page-root .easy-pack { background: #12a14a; color: var(--gruns-yellow); font-family: var(--font-display); font-style: italic; font-weight: 900; padding: 18px 26px; border-radius: 10px; transform: rotate(-6deg); }
+#home-page-root .easy-pack--big { font-size: 34px; display: flex; flex-direction: column; }
+#home-page-root .easy-pack--big span { font-size: 12px; font-style: normal; color: #fff; }
+#home-page-root .easy-card h3 { font-family: var(--font-display); font-size: 22px; margin: 16px 0 8px; }
+#home-page-root .easy-card p { font-size: 14px; color: var(--gruns-muted); padding: 0 22px; margin: 0; line-height: 1.5; }
+#home-page-root .stats { padding: 56px 20px 40px; }
+#home-page-root .stats p {
+  font-family: var(--font-display); font-weight: 900; margin: 0;
+  font-size: clamp(34px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.01em;
+}
+
+/* ---------- gradient + trust ---------- */
+#home-page-root .gradient-band { height: 640px; background: linear-gradient(180deg, #0e7a3d 0%, #6faf2f 45%, #f5b800 75%, var(--gruns-yellow) 100%); }
+#home-page-root .trust {
+  background: var(--gruns-green-dark); color: #fff;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 26px;
+  padding: 44px 40px; align-items: start;
+}
+#home-page-root .trust h2 { font-family: var(--font-display); font-size: 30px; margin: 0 0 10px; line-height: 1.15; }
+#home-page-root .trust-copy p { font-size: 13.5px; opacity: 0.85; line-height: 1.55; margin: 0; }
+#home-page-root .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; list-style: none; margin: 0; padding: 0; }
+#home-page-root .trust-pill {
+  background: rgba(0, 0, 0, 0.35); border-radius: 12px; padding: 22px 10px 18px;
+  text-align: center; font-size: 12px; display: flex; flex-direction: column; gap: 4px;
+  align-items: center; justify-content: center;
+}
+#home-page-root .trust-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+/* ---------- birthday / buy box ---------- */
+#home-page-root .birthday { background: #fff; padding: 56px 28px; }
+#home-page-root .birthday-title {
+  text-align: center; color: var(--gruns-green); font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 0 0 30px;
+}
+#home-page-root .buy-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 34px;
+  max-width: 1080px; margin: 0 auto; align-items: start;
+}
+#home-page-root .gallery { display: flex; flex-direction: column; }
+#home-page-root .gallery-row { display: flex; flex-direction: row; gap: 12px; align-items: stretch; }
+#home-page-root .thumbs { display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0; }
+#home-page-root .thumbs li { width: 58px; height: 64px; border: 1.5px solid #ccc; border-radius: 8px; background: #f6f2e6; }
+#home-page-root .thumbs li.is-active { border-color: var(--gruns-green); background: #e4efe2; }
+#home-page-root .main-shot {
+  flex: 1; border: 2px solid var(--gruns-ink); border-radius: 12px; min-height: 560px;
+  display: flex; align-items: center; justify-content: center; background: #fffdf6;
+  position: relative; overflow: hidden;
+}
+#home-page-root .shot-badge {
+  position: absolute; right: 0; bottom: 0; width: 46%;
+  background: var(--gruns-green-dark); color: #fff; text-align: center;
+  padding: 16px 10px; font-family: var(--font-display);
+}
+#home-page-root .shot-badge b { display: block; color: #7ee2a0; font-size: 26px; line-height: 1.1; }
+#home-page-root .shot-badge span { font-size: 14px; }
+#home-page-root .main-pack {
+  width: 240px; min-height: 300px; border-radius: 16px; padding: 26px 18px;
+  background: linear-gradient(165deg, #17a84e, #073d20); color: var(--gruns-yellow);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+  box-shadow: var(--shadow-card);
+}
+#home-page-root .main-pack .pack-word { font-size: 52px; }
+#home-page-root .main-pack .pack-sub { color: #fff; font-size: 12px; }
+#home-page-root .main-pack .pack-bear { font-size: 64px; }
+#home-page-root .lab-note {
+  display: flex; gap: 12px; align-items: center; border: 1px solid #e3ddd0;
+  border-radius: 10px; padding: 12px 16px; margin-top: 12px; font-size: 12.5px;
+}
+#home-page-root .lab-note mark { background: #e6eafa; padding: 0 6px; border-radius: 4px; }
+#home-page-root .lab-check { color: #4a7ddb; font-size: 22px; }
+#home-page-root .buy-rating { font-size: 13px; }
+#home-page-root .buy-name { font-family: var(--font-display); color: var(--gruns-green); font-size: 34px; margin: 6px 0; line-height: 1.1; }
+#home-page-root .buy-tag { font-size: 15px; margin: 0 0 10px; }
+#home-page-root .buy-points { list-style: none; margin: 0 0 14px; padding: 0; font-size: 13.5px; display: grid; gap: 5px; }
+#home-page-root .buy-points li::before { content: "✓ "; color: var(--gruns-green); font-weight: 800; }
+#home-page-root .opt-label { font-size: 15px; margin: 20px 0 6px; border-top: 1px solid #d9d4c5; padding-top: 16px; }
+#home-page-root .opt-label span { font-weight: 400; }
+#home-page-root .opt-note { font-size: 13px; margin: 0 0 10px; }
+#home-page-root .flavor-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+#home-page-root .flavor, #home-page-root .sugar {
+  border: 1.5px solid #b9b3a3; background: #fff; border-radius: 10px;
+  padding: 22px 12px 12px; font-size: 14px; font-weight: 700; cursor: pointer; position: relative;
+}
+#home-page-root .flavor.is-active, #home-page-root .sugar.is-active, #home-page-root .qty.is-active { border-color: var(--gruns-green); background: #dcefe0; }
+#home-page-root .flavor-tag {
+  position: absolute; top: 6px; left: 8px; background: #a5368b; color: #fff;
+  font-size: 10px; padding: 2px 8px; border-radius: var(--radius-pill);
+}
+#home-page-root .flavor-swatch {
+  display: block; width: 64px; height: 64px; margin: 0 auto 8px; border-radius: 10px;
+  font-family: var(--font-display); font-style: italic; font-weight: 900; font-size: 15px;
+  line-height: 64px; color: var(--gruns-yellow); text-align: center;
+}
+#home-page-root .flavor-swatch--original { background: linear-gradient(165deg, #17a84e, #073d20); }
+#home-page-root .flavor-swatch--shrek { background: linear-gradient(165deg, #8e2f9e, #0a5c2e); }
+#home-page-root .sugar-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+#home-page-root .sugar { padding: 12px; }
+#home-page-root .save-chip { font-size: 11px; font-weight: 400; border: 1px dashed #999; border-radius: 6px; padding: 2px 8px; margin-left: 6px; }
+#home-page-root .qty-row { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid #b9b3a3; border-radius: var(--radius-pill); overflow: hidden; }
+#home-page-root .qty { border: 0; background: #fff; padding: 12px; font-weight: 800; cursor: pointer; border-radius: var(--radius-pill); }
+#home-page-root .plan { border: 1.5px solid #b9b3a3; border-radius: 12px; margin-top: 12px; overflow: hidden; cursor: pointer; }
+#home-page-root .plan.is-active { border-color: var(--gruns-green); background: #eef7ee; }
+#home-page-root .plan-banner { background: var(--gruns-green); color: var(--gruns-yellow); font-family: var(--font-display); font-size: 12px; text-align: center; padding: 6px; }
+#home-page-root .plan-body { display: flex; justify-content: space-between; gap: 10px; padding: 12px 16px; font-size: 14px; }
+#home-page-root .plan-price { text-align: right; }
+#home-page-root .plan-price s { color: var(--gruns-muted); font-size: 12px; margin-left: 6px; }
+#home-page-root .plan-perks { list-style: none; margin: 0; padding: 0 16px 14px 34px; font-size: 12.5px; display: grid; gap: 3px; }
+#home-page-root .plan-perks li::before { content: "✓ "; color: var(--gruns-green); }
+#home-page-root .birthday .btn--xl { margin-top: 16px; }
+#home-page-root .auto-note { text-align: center; color: var(--gruns-green); font-weight: 800; font-size: 12.5px; font-style: italic; }
+#home-page-root .guarantee-note { text-align: center; background: #eef7ee; border-radius: 8px; font-size: 12.5px; padding: 8px; }
+#home-page-root .mini-trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 11.5px; text-align: center; margin: 14px 0; }
+#home-page-root .accordions { margin-top: 8px; }
+#home-page-root .acc { border-bottom: 1px solid #b9b3a3; }
+#home-page-root .acc-head {
+  width: 100%; background: none; border: 0; cursor: pointer; padding: 14px 2px;
+  display: flex; justify-content: space-between; font-size: 14.5px; font-weight: 800;
+}
+#home-page-root .acc-body { font-size: 13.5px; color: #333; padding: 0 2px 14px; margin: 0; line-height: 1.55; }
+#home-page-root .taste-title { text-align: center; margin: 22px 0 10px; font-size: 16px; }
+#home-page-root .taste-row { display: flex; justify-content: center; gap: 34px; list-style: none; padding: 0; margin: 0; font-size: 26px; text-align: center; }
+#home-page-root .taste-row span { display: block; font-size: 12.5px; font-weight: 700; }
+#home-page-root .packed { list-style: none; padding: 0; margin: 0 auto; max-width: 240px; display: grid; gap: 8px; font-size: 13.5px; }
+
+/* ---------- promos + members ---------- */
+#home-page-root .promo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 26px; background: #fff; }
+#home-page-root .promo-card { border-radius: var(--radius-lg); padding: 34px; font-family: var(--font-display); font-size: 22px; line-height: 1.3; }
+#home-page-root .promo-card--green { background: var(--gruns-green); color: #fff; }
+#home-page-root .promo-card--yellow { background: var(--gruns-yellow); color: var(--gruns-ink); }
+#home-page-root .promo-card p { margin: 0 0 16px; }
+#home-page-root .members { background: var(--gruns-cream); color: var(--gruns-ink); text-align: center; padding: 76px 20px 60px; overflow: hidden; }
+#home-page-root .members h2 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.04; margin: 0 0 14px; }
+#home-page-root .members-lead { display: block; color: var(--gruns-green); }
+#home-page-root .members-social { display: flex; justify-content: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+#home-page-root .members-social a { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: var(--gruns-green); color: #fff; }
+#home-page-root .members-social svg { width: 17px; height: 17px; }
+#home-page-root .marquee { display: flex; gap: 0; white-space: nowrap; font-family: var(--font-display); color: var(--gruns-yellow); font-size: 20px; }
+#home-page-root .marquee span { padding-right: 12px; animation: slide 18s linear infinite; }
+
+@keyframes slide { to { transform: translateX(-100%); } }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1020px) {
+  #home-page-root .hero { grid-template-columns: 1fr; }
+  #home-page-root .hero-art { min-height: 380px; }
+  #home-page-root .carousel { grid-template-columns: repeat(2, 1fr); }
+  #home-page-root .easy-grid { grid-template-columns: 1fr; max-width: 520px; }
+  #home-page-root .trust { grid-template-columns: 1fr; }
+  #home-page-root .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  #home-page-root .buy-grid { grid-template-columns: 1fr; }
+  #home-page-root .promo-duo { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  #home-page-root .carousel { grid-template-columns: 1fr; }
+  #home-page-root .wordmark--game { font-size: 32px; }
+  #home-page-root .hero-title { font-size: 30px; }
+}

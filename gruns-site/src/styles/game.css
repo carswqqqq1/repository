@@ -1,0 +1,194 @@
+/* ==========================================================================
+   "Try Your Luck" full-screen game — mirrors the on-load promo overlay
+   ========================================================================== */
+.game {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  overflow: hidden;
+  background-color: #f7f1d6;
+  background-image: url('/img/game-bg.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.game__close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  color: rgba(10, 25, 18, 0.7);
+  background: rgba(255, 255, 255, 0.55);
+}
+.game__close svg {
+  width: 18px;
+  height: 18px;
+}
+.game__close:hover {
+  background: #fff;
+}
+
+.game__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.game__bear,
+.game__star {
+  position: absolute;
+  height: auto;
+  transform: rotate(var(--rot, 0deg));
+  animation: game-float 6s ease-in-out infinite;
+}
+.game__star {
+  animation-duration: 4.5s;
+}
+
+@keyframes game-float {
+  0%,
+  100% {
+    transform: rotate(var(--rot, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--rot, 0deg)) translateY(-14px);
+  }
+}
+
+.game__girl {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  width: min(46vw, 620px);
+  height: auto;
+  filter: drop-shadow(26px 14px 0 var(--color-yellow));
+}
+
+.game__panel {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(90vw, 420px);
+}
+
+.game__logo {
+  width: 130px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.game__timer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  height: 38px;
+  padding-inline: 14px;
+  border-radius: 999px;
+  background: var(--color-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.game__title {
+  margin-top: 22px;
+  font-size: 2.75rem;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-off-black);
+}
+
+.game__sub {
+  margin-top: 6px;
+  color: rgba(10, 25, 18, 0.85);
+}
+
+.game__grid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, 72px);
+  gap: 12px;
+  justify-content: center;
+}
+
+.game__card {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 108px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 44, 23, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.game__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 44, 23, 0.18);
+}
+.game__card.is-up {
+  background: var(--color-green);
+  color: #fff;
+}
+.game__card.is-up span {
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  padding: 4px;
+  letter-spacing: -0.02em;
+}
+
+.game__cta {
+  margin-top: 26px;
+  height: 48px;
+  font-size: 1rem;
+}
+
+.game__reset {
+  margin-top: 22px;
+  color: rgba(10, 25, 18, 0.6);
+  text-decoration: underline;
+}
+
+@media (max-width: 899px) {
+  .game__panel {
+    left: 50%;
+    top: 34%;
+    width: min(92vw, 360px);
+  }
+  .game__title {
+    font-size: 2.125rem;
+  }
+  .game__girl {
+    left: 50%;
+    width: min(96vw, 460px);
+    transform: translateX(-50%);
+  }
+  .game__grid {
+    grid-template-columns: repeat(3, 64px);
+  }
+  .game__card {
+    width: 64px;
+    height: 92px;
+  }
+  .game__bear {
+    opacity: 0.9;
+  }
+}
