@@ -59,9 +59,44 @@ inside an isolated worktree (`/tmp/gruns-qa-wt`, branch
   interaction PASS again on the rebuilt tree, no page errors.
 - This commit holds the re-applied code fixes; harness + this log rode the merges.
 
-## Known gaps (accepted, need licensed photography / brand font)
+## R5 — real photography + condensed display type (height 7008px)
 
-- Hero + easy cards use CSS/emoji illustration, not the photo art in refs.
-- Headline/stats type is a rounded sans; ref uses a heavier condensed grotesk.
+Closes the top two "known gaps" below. The reference screenshot archive was
+restored, so the photography is now cropped straight out of it rather than
+approximated in CSS. `scripts/crop-screenshots.py` documents every crop box in
+the coordinate space of the 1440px-wide captures and regenerates
+`public/images/` (18 files, ~417 KB total) from
+`gruns-screenshots/out/00_home/174__home.jpg` plus the `gruns` and `shrek-gruns`
+PDP captures. The archive itself stays out of git.
+
+- **Hero.** `hero-art.webp` is the left 830px of the hero band with an alpha ramp
+  over its right 94px, so it dissolves into the section wash instead of showing a
+  vertical seam. That wash is no longer guessed: `gradfit` binned the reference
+  hero's background pixels by projection angle and took per-bin medians, giving
+  `linear-gradient(156deg, …)` with 14 stops. Hero now carries the reference's
+  1440:925 aspect, and the bottom 2.7% is the cream strip the yellow blob bar
+  overhangs onto. Retired `.hero-blob` / `.hero-person` / `.hero-face` /
+  `.gummy` / `.spark` CSS art (~60 lines).
+- **Product row.** Four pouch tiles replace the CSS `.pack` mock. The hero blob
+  bar covers the top 32px of the first two tiles and every tile is corner
+  rounded, so `edge_extend()` crops the clean interior and rebuilds the missing
+  border from its own outermost row/column.
+- **Easy cards.** The three lifestyle photos replace the 😋 emoji and the two
+  CSS pack mocks.
+- **Buy box.** Per-flavour PDP pack shot (switches with the flavour radio), the
+  six real gallery thumbs in the vertical rail, and real pouch flavour swatches.
+  Buy row re-proportioned to the reference's ~737/470 split so the shot lands at
+  its native 640px rather than 446px.
+- **Type.** Added Anton as `--font-condensed` and applied it to the stats slab,
+  the members headline and the marquee — the three all-caps display runs.
+- Verified: `vite build` + `oxlint` green, r2 bands match refs at 1440px, and a
+  430px pass confirms the hero photo and 1-up product column still read.
+
+## Known gaps (accepted)
+
 - Sticky PDP "Save 55% + Free Shipping" blur bar not replicated (PDP chrome, out of homepage scope).
-- Reviews depth shorter than the 10743px reference full page (ours ~6450px).
+- Reviews depth shorter than the 10743px reference full page (ours ~7000px).
+- Members section's Instagram tile grid is empty in the reference capture
+  (lazy-loaded past the screenshotter), so there is no source art to crop.
+- Buy-box main shot is the PDP hero slide; the homepage's own main shot was also
+  lazy-loaded and blank in the capture.
