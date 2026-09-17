@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SiteLayout from "./layouts/SiteLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import ProductPage from "./pages/ProductPage.jsx";
+import Product from "./pages/Product.jsx";
 import CollectionPage from "./pages/CollectionPage.jsx";
 import PagesRoute from "./pages/PagesRoute.jsx";
 import FirstOrder from "./pages/FirstOrder.jsx";
@@ -18,7 +18,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="products">
             <Route index element={<Navigate to="/products/gruns" replace />} />
-            <Route path=":handle" element={<ProductPage />} />
+            <Route path=":handle" element={<Product />} />
           </Route>
           <Route path="collections">
             <Route index element={<Navigate to="/collections/all" replace />} />
