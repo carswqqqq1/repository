@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Stars from '../components/Stars.jsx';
-import { img } from '../data/site.js';
+import { brandAssets } from '../data/site.js';
 
 const POINTS = ['30-day money-back guarantee', 'Clinically and 3rd party tested', 'HSA/FSA eligible'];
 
@@ -38,7 +38,7 @@ export default function FinalCta() {
             </div>
           </div>
           <div className="finalcta__media">
-            <img src={img('pouch_w_gummies.webp_3.webp?v=1786460921', 1200)} alt="Grüns pouch with gummies" loading="lazy" />
+            <img src={brandAssets.finalCtaPouch} alt="Grüns pouch with gummies" loading="lazy" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Stars from '../components/Stars.jsx';
-import { img } from '../data/site.js';
+import { brandAssets } from '../data/site.js';
 
 const PROPS = [
   { value: '60', sup: '+', label: 'Ingredients', note: 'Including whole fruits and veggies' },
@@ -75,14 +75,14 @@ export default function ThreePropHero() {
         <div className="hero__media">
           <img
             className="hero__badge"
-            src={img('lowered-price-badge-bday.webp?v=1786465175', 175)}
+            src={brandAssets.heroBadge}
             alt='A green scalloped badge reading "We Lowered Our Price"'
             width={155}
             height={155}
           />
           <img
             className="hero__image"
-            src={img('lifestyle-focused-hmpg-hero.webp?v=1784247483', 900)}
+            src={brandAssets.heroLifestyle}
             alt="A smiling woman in a white t-shirt pours dark green gummies from a Grüns daily pack into her hand"
             width={884}
             height={662}

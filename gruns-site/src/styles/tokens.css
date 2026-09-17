@@ -1,6 +1,36 @@
-/* Grüns design tokens — aligned with gruns.co theme + screenshot refs */
+/* Grüns design tokens — values read off the live gruns.co theme. */
 
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Nunito:wght@700;800;900&family=Work+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+/* Brand typography, self-hosted from the Grüns CDN (tools/fetch-assets.mjs).
+   "Retail Display" is the chunky display face; Work Sans carries everything
+   else; DM Mono is used for the uppercase eyebrows. */
+@font-face {
+  font-family: "Retail Display";
+  src: url("/fonts/retail-display.woff") format("woff2"), url("/fonts/retail-display.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("/fonts/work-sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("/fonts/work-sans-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Mono";
+  src: url("/fonts/dm-mono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Greens */
@@ -20,28 +50,35 @@
   --color-yellow-weak: #ffde77;
   --color-yellow-strong: #edb300;
   --color-off-white: #fffcf6;
-  --color-neutral-off-white: #f5f3e7;
+  --color-neutral-off-white: #fff7df;
+
+  /* Accents */
+  --color-magenta: #b4257f;
+  --color-plum: #4b1348;
 
   /* Semantic aliases (theme) */
   --color-primary: var(--color-green);
+  --color-primary-base: var(--color-green);
   --color-primary-strong: var(--color-green-strong);
   --color-primary-strongest: var(--color-green-strongest);
   --color-secondary: var(--color-yellow);
+  --color-secondary-base: var(--color-yellow);
   --color-secondary-strong: var(--color-yellow-strong);
 
   /* Text */
+  --color-ink: #001f10;
+  --color-off-black: #001f10;
   --color-fg-primary: rgba(0, 31, 16, 0.95);
   --color-fg-secondary: rgba(0, 31, 16, 0.7);
-  --color-fg-tertiary: rgba(0, 31, 16, 0.5);
-  --color-fg-primary-inverse: rgba(255, 255, 255, 0.95);
-  --color-ink: #001f10;
+  --color-fg-tertiary: rgba(0, 31, 16, 0.55);
+  --color-fg-primary-inverse: #ffffff;
 
   /* Legacy aliases for sibling agents */
   --gruns-green: var(--color-green);
   --gruns-green-deep: var(--color-green-strong);
   --gruns-green-dark: var(--color-green-strongest);
   --gruns-green-ink: var(--color-ink);
-  --gruns-cream: var(--color-lt-yellow);
+  --gruns-cream: var(--color-neutral-off-white);
   --gruns-cream-deep: var(--color-off-white);
   --gruns-yellow: var(--color-yellow);
   --gruns-yellow-deep: var(--color-yellow-strong);
@@ -51,10 +88,10 @@
 
   /* Typography */
   --font-primary: "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: "Nunito", "Arial Rounded MT Bold", "Helvetica Rounded", system-ui, sans-serif;
-  --font-accent: "Caveat", "Segoe Script", cursive;
+  --font-display: "Retail Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-body: var(--font-primary);
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-accent: var(--font-display);
 
   /* Product card washes (shop agent) */
   --wash-original: linear-gradient(160deg, #ffcc2f 0%, #007e40 78%);
@@ -74,7 +111,14 @@
   --header-pill-border: rgba(255, 255, 255, 0.25);
 
   /* Layout */
-  --page-max: 1280px;
+  --page-max: 1440px;
+  --page-gutter: 20px;
   --nav-h: 4.75rem;
   --space-section: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --page-gutter: 72px;
+  }
 }

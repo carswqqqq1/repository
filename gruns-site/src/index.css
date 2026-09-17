@@ -1,5 +1,9 @@
 @import "./styles/tokens.css";
+@import "./styles/typography.css";
 @import "./styles/chrome.css";
+@import "./styles/sections.css";
+@import "./styles/buybox.css";
+@import "./styles/game.css";
 
 *,
 *::before,
@@ -15,11 +19,25 @@ body {
   margin: 0;
   font-family: var(--font-primary);
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--color-fg-primary);
   background: var(--color-neutral-off-white);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
 }
 
 #root {
@@ -42,13 +60,13 @@ a {
   border: 0;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 .font-accent {
