@@ -33,7 +33,7 @@ export default function Header() {
         {open && <button className="site-nav-overlay" aria-label="Close menu" onClick={() => setOpen(false)} />}
         <div className="site-header__bar page">
           <Link to="/" aria-label="Grüns — Home" className="site-header__logo">
-            <Logo width={77} />
+            <Logo width={70} />
           </Link>
 
           <div className="site-header__actions">

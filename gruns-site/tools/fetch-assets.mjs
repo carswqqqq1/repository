@@ -119,6 +119,8 @@ const ASSETS = [
   ["images/gruns-wordmark-yellow.svg", "gruns_logo_yellow.svg", null],
   ["images/bear-necessities.svg", "bear_necessities_dk.svg", null],
   ["images/star-barry.svg", "star_barry.svg", null],
+  // The Ü Snacks lockup lives under the theme assets, not /files
+  ["images/usnacks-logo.svg", "../t/165/assets/usnacks_logo.svg", null],
 
   // "1 million members" fanned social photos
   ...[2, 3, 5, 7, 8, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 23].map((n) => {
