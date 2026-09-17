@@ -2,7 +2,9 @@ https://gruns-replica.wary-archaeopteryx.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-Deployed at: 2026-09-17T19:06Z (UTC)
+Deployed at: 2026-09-17T19:18Z (UTC)
+Version ID: 6979b8ca-d1e6-465f-b48c-6221af5c6b06
+Includes: shop collections (/collections/shop-gruns, /collections/all, /collections/merch) merged from cursor/gruns-site-replica-304a
 Claim window: ~60 minutes from deploy time (claim URL was shown in deploy output, not saved — redeploy with the same command if the temporary account expires)
 
 Note: Cloudflare's temporary/trial accounts route traffic through a managed
