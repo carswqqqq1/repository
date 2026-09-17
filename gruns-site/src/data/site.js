@@ -220,10 +220,10 @@ export const benefitAssets = {
 /* ------------------------------------------------- home: 3rd party tested */
 
 export const testedCallouts = [
-  { label: '70 different pesticides', icon: img('icon-tested-bugs.svg') },
-  { label: '4 types of heavy metals', icon: img('icon-tested-metals.svg') },
-  { label: '16 different contaminants', icon: img('icon-tested-contaminants.svg') },
-  { label: '9 microbial contaminants', icon: img('icon-tested-microbial.svg') },
+  { n: '70 different', label: 'pesticides', icon: img('icon-tested-bugs.svg') },
+  { n: '4 types of', label: 'heavy metals', icon: img('icon-tested-metals.svg') },
+  { n: '16 different', label: 'contaminants', icon: img('icon-tested-contaminants.svg') },
+  { n: '9 microbial', label: 'contaminants', icon: img('icon-tested-microbial.svg') },
 ];
 
 /* ----------------------------------------------------- home: buy box (PDP) */

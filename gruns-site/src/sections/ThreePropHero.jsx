@@ -13,7 +13,7 @@ export default function ThreePropHero() {
     <section className="hero">
       <div className="hero__inner page">
         <div className="hero__copy">
-          <p className="hero__rating body-4">
+          <p className="hero__rating body-3">
             <Stars size={15} />
             <span>
               <strong>4.8</strong> stars <span className="hero__rating-from">from</span> <strong>100,000</strong>{' '}

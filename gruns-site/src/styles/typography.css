@@ -188,8 +188,8 @@
   font-family: var(--font-primary);
   font-size: 1.125rem;
   font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.6;
+  letter-spacing: -0.03em;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;

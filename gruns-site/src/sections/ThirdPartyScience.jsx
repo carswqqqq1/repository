@@ -13,9 +13,12 @@ export default function ThirdPartyScience() {
         </div>
         <ul className="tested__callouts">
           {testedCallouts.map((c) => (
-            <li key={c.label}>
-              <img src={c.icon} alt="" loading="lazy" />
-              <p className="body-3">{c.label}</p>
+            <li key={c.n + c.label}>
+              <img className="tested__icon" src={c.icon} alt="" width={48} height={48} />
+              <p className="body-3">
+                <strong>{c.n}</strong>
+                <span>{c.label}</span>
+              </p>
             </li>
           ))}
         </ul>
