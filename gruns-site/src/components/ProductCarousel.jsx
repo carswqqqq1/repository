@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PRODUCTS } from "../data/products";
 
 function Pack({ pack, badge, sub }) {
@@ -29,7 +30,7 @@ export default function ProductCarousel() {
             <h3 className="product-name">{p.name}</h3>
             <p className="product-price">Starts at {p.price} <s>{p.compareAt}</s></p>
             <button className="btn btn--green btn--block">Add to Cart</button>
-            <a className="learn-more" href="#buy">Learn More</a>
+            <Link className="learn-more" to={p.to}>Learn More</Link>
           </article>
         ))}
       </div>

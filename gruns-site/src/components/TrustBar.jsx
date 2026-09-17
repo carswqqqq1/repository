@@ -1,8 +1,8 @@
 const ITEMS = [
-  { n: "70 different", label: "pesticides" },
-  { n: "4 types of", label: "heavy metals" },
-  { n: "16 different", label: "contaminants" },
-  { n: "9 microbial", label: "contaminants" },
+  { n: "70 different", label: "pesticides", icon: "🧪" },
+  { n: "4 types of", label: "heavy metals", icon: "⚗️" },
+  { n: "16 different", label: "contaminants", icon: "🔬" },
+  { n: "9 microbial", label: "contaminants", icon: "🛡️" },
 ];
 
 export default function TrustBar() {
@@ -17,6 +17,7 @@ export default function TrustBar() {
         <ul className="trust-grid">
           {ITEMS.map((t) => (
             <li key={t.n + t.label} className="trust-pill">
+              <span className="trust-icon" aria-hidden>{t.icon}</span>
               <strong>{t.n}</strong>
               <span>{t.label}</span>
             </li>

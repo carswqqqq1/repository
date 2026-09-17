@@ -2,6 +2,7 @@ export const PRODUCTS = [
   {
     id: "original-adults",
     name: "Original Adults",
+    to: "/products/gruns",
     price: "$29.99",
     compareAt: "$66.65",
     tag: "BEST SELLER",
@@ -13,6 +14,7 @@ export const PRODUCTS = [
   {
     id: "shrek-adults",
     name: "Berry Far Far Away Adults",
+    to: "/products/shrek",
     price: "$32.79",
     compareAt: "$70.38",
     tag: null,
@@ -24,6 +26,7 @@ export const PRODUCTS = [
   {
     id: "original-kids",
     name: "Original Kids",
+    to: "/products/gruns-kids",
     price: "$24.99",
     compareAt: "$53.32",
     tag: null,
@@ -35,6 +38,7 @@ export const PRODUCTS = [
   {
     id: "shrek-kids",
     name: "Berry Far Far Away Kids",
+    to: "/products/shrek-kids",
     price: "$27.79",
     compareAt: "$57.05",
     tag: "BRAND NEW!",

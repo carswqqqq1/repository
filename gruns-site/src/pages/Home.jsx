@@ -1,3 +1,4 @@
+import "../styles/home.css";
 import HeroGame from "../components/HeroGame";
 import ProductCarousel from "../components/ProductCarousel";
 import EasySection from "../components/EasySection";

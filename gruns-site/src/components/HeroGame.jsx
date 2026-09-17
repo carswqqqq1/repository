@@ -12,17 +12,10 @@ function buildDeck() {
   return arr;
 }
 
-function fmt(s) {
-  const m = Math.floor(s / 60);
-  const r = s % 60;
-  return `00:${String(m).padStart(2, "0")}:${String(r).padStart(2, "0")}`.slice(3);
-}
-
 export default function HeroGame() {
   const [deck, setDeck] = useState(buildDeck);
   const [flipped, setFlipped] = useState([]);
   const [secs, setSecs] = useState(59);
-  const [won, setWon] = useState(null);
 
   useEffect(() => {
     if (secs <= 0) return;
@@ -38,10 +31,7 @@ export default function HeroGame() {
     return c;
   }, [flipped, deck]);
 
-  useEffect(() => {
-    const hit = Object.entries(counts).find(([, n]) => n >= 3);
-    if (hit) setWon(hit[0]);
-  }, [counts]);
+  const won = (Object.entries(counts).find(([, n]) => n >= 3) || [])[0] || null;
 
   function flip(i) {
     if (flipped.includes(i) || won) return;
@@ -51,7 +41,6 @@ export default function HeroGame() {
   function reset() {
     setDeck(buildDeck());
     setFlipped([]);
-    setWon(null);
     setSecs(59);
   }
 
@@ -67,11 +56,12 @@ export default function HeroGame() {
         <div className="gummy gummy--2"><i /><i /><i /></div>
         <div className="gummy gummy--3"><i /><i /><i /></div>
         <div className="hero-person">
+          <div className="hero-hair" />
+          <div className="hero-shoulders" />
           <div className="hero-face">
             <span className="eye eye--l" /><span className="eye eye--r" />
             <span className="smile" />
           </div>
-          <div className="hero-hair" />
           <div className="hero-pack">
             <span className="hero-pack-bear">🐻</span>
             <span className="hero-pack-word">grüns</span>
