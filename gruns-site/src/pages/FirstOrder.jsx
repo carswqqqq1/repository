@@ -132,7 +132,7 @@ function Buybox() {
           <h4>Autoship and Save:</h4>
           <button className={`fo-plan ${plan==='subscribe'?'active':''}`} onClick={()=>setPlan('subscribe')}><b>◉ Subscribe & Save</b><span><b>$29.99</b><s>$66.65</s></span><small>28 packs each 4 weeks</small><ul><li>Free Shipping Today</li><li>Pause Or Cancel Any Time</li><li>30-Day Money-Back Guarantee</li></ul></button>
           <button className={`fo-plan once ${plan==='once'?'active':''}`} onClick={()=>setPlan('once')}><b>○ One Time Purchase</b><span><b>$66.65</b></span></button>
-          <Button children="Start Now" />
+          <Button>Start Now</Button>
           <p className="fo-auto">◆ DISCOUNT AUTO-APPLIED</p>
           <div className="fo-assurances"><span>◉<br />30-Day Money-Back Guarantee</span><span>⌁<br />Clinically and 3rd party tested</span><span>✚<br />HSA/FSA eligible</span></div>
           <div className="fo-details">{['Why Grüns?','Ingredients & Allergies','Low Sugar vs. Sugar-Free','Science & Certifications','Directions','Benefits'].map(x=><details key={x}><summary>{x}<b>＋</b></summary><p>Comprehensive, convenient daily nutrition made from clean, carefully tested ingredients.</p></details>)}</div>
@@ -161,7 +161,7 @@ function LowerSections() {
         <div className="fo-evidence-strip"><span>60+ INGREDIENTS</span><span>21 VITAMINS & MINERALS</span><span>6G FIBER</span><span>ONE DAILY PACK</span></div>
       </section>
       <section className="fo-shrek">
-        <div><h2>Going fast.<br />No restocks planned.</h2><p>Stock up on Berry Far Far Away Adults before it's gone.</p><Button children="Shop Now" /></div>
+        <div><h2>Going fast.<br />No restocks planned.</h2><p>Stock up on Berry Far Far Away Adults before it's gone.</p><Button>Shop Now</Button></div>
         <img src={cdn('Group_1984079150.webp', 800)} alt="Shrek x Grüns" />
       </section>
       <section className="fo-voices">
@@ -187,15 +187,15 @@ function LowerSections() {
         <img src={cdn('UsVsThem_Adults.png', 1200)} alt="Grüns comparison table" />
       </section>
       <section className="fo-birthday">
-        <div><h2>Same Grüns.<br />New Lower Price.<br />Subs Now Start at $29.99.</h2><p>It's our third birthday, and we're lowering prices—not just for a week but indefinitely.</p><Button children="Shop Now" /></div>
+        <div><h2>Same Grüns.<br />New Lower Price.<br />Subs Now Start at $29.99.</h2><p>It's our third birthday, and we're lowering prices—not just for a week but indefinitely.</p><Button>Shop Now</Button></div>
         <img src={cdn('Group_1984079021.webp', 1000)} alt="Grüns birthday pouch" />
       </section>
       <section className="fo-shaun">
         <img src={cdn('Lifestyle-ShaunWhite.webp', 1000)} alt="Shaun White holding Grüns" />
-        <div><h2>“I love that it makes better health accessible to everyone”</h2><p>“Grüns uses clean ingredients that actually deliver, whether you're training at the highest level or just trying to make good choices every day.”</p><b>Shaun White</b><small>3x Olympic Gold Medalist, Snowboarding Icon</small><Button children="Shop Now" /></div>
+        <div><h2>“I love that it makes better health accessible to everyone”</h2><p>“Grüns uses clean ingredients that actually deliver, whether you're training at the highest level or just trying to make good choices every day.”</p><b>Shaun White</b><small>3x Olympic Gold Medalist, Snowboarding Icon</small><Button>Shop Now</Button></div>
       </section>
       <section className="fo-final">
-        <div><Stars /><p>4.8 stars • 100K+ reviews • 1M+ members</p><h2>It's Our Birthday.<br />We Lowered Our Price.</h2><ul><li>✓ 30-day money-back guarantee</li><li>✓ Clinically and 3rd party tested</li><li>✓ HSA/FSA eligible</li></ul><Button children="Shop Now" /></div>
+        <div><Stars /><p>4.8 stars • 100K+ reviews • 1M+ members</p><h2>It's Our Birthday.<br />We Lowered Our Price.</h2><ul><li>✓ 30-day money-back guarantee</li><li>✓ Clinically and 3rd party tested</li><li>✓ HSA/FSA eligible</li></ul><Button>Shop Now</Button></div>
         <img src={cdn('pouch_w_gummies.webp_3.webp', 1200)} alt="Grüns pouch and gummy bear" />
       </section>
       <section className="fo-faq">
