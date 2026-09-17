@@ -1,0 +1,284 @@
+/* Layout polish vs gruns.co. Loaded last. Does not change photo crops
+   (no object-position / aspect-ratio edits on lifestyle or product shots). */
+
+/* ------------------------------------------------------------------- hero
+   Live site left-aligns copy from 900px; stacked mobile stays centered. */
+@media (min-width: 900px) {
+  .hero__copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero__rating,
+  .hero__trust {
+    justify-content: flex-start;
+  }
+  .hero__props {
+    justify-items: start;
+    max-width: 440px;
+    margin-inline: 0;
+  }
+}
+
+/* ---------------------------------------------------------- find your flavor */
+.fave-card__price {
+  margin-bottom: 14px;
+}
+.fave-card__cta {
+  margin-top: auto;
+  min-height: 44px;
+  height: 44px;
+}
+.fave-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  align-self: center;
+  padding-inline: 8px;
+}
+
+@media (max-width: 899px) {
+  .fave {
+    padding-block: 24px 40px;
+  }
+  .fave__grid {
+    gap: 22px 12px;
+  }
+  .fave-card__title {
+    font-size: 1rem;
+  }
+  .fave-card__price {
+    font-size: 0.8125rem;
+  }
+}
+
+/* --------------------------------------------------------------- press strip */
+@media (max-width: 599px) {
+  .press {
+    padding-block: 14px;
+  }
+  .press__track {
+    gap: 44px;
+  }
+  .press__item img {
+    height: 24px;
+    max-width: 128px;
+  }
+}
+
+/* ----------------------------------------------------------------- buy box */
+@media (min-width: 1000px) {
+  .buybox-grid > .gallery {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+}
+
+@media (max-width: 899px) {
+  .buybox-section {
+    padding-block: 36px 40px;
+  }
+  .buybox__trust {
+    gap: 8px;
+  }
+  .swatch,
+  .pillbox,
+  .qty,
+  .acc__head {
+    min-height: 44px;
+  }
+}
+
+/* ------------------------------------------------------------------ tested */
+@media (max-width: 639px) {
+  .tested {
+    padding-block: 36px;
+  }
+  .tested__callouts {
+    gap: 8px;
+  }
+  .tested__callouts li {
+    min-height: 120px;
+    padding: 16px 8px 14px;
+  }
+}
+
+/* -------------------------------------------------------------- cta banner
+   Full-bleed yellow band. Pouch sits on the bottom edge; copy stays in the
+   page gutter. Width/height:auto keeps the PNG's native crop. */
+.ctabanner__cta {
+  min-width: 44px;
+}
+@media (max-width: 899px) {
+  .ctabanner__copy {
+    text-align: left;
+    padding-bottom: 12px;
+  }
+  .ctabanner__cta {
+    width: 100%;
+    max-width: 280px;
+  }
+  .ctabanner__media {
+    width: min(100%, 300px);
+    margin-inline: auto;
+  }
+}
+
+/* -------------------------------------------------------------- social fan */
+.socialfan__fan {
+  height: clamp(168px, 21vw, 300px);
+  margin-top: 18px;
+}
+.socialfan__chip {
+  width: 44px;
+  height: 44px;
+}
+
+/* ------------------------------------------------------------------ footer */
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+}
+.newsletter-toggle {
+  padding: 0;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.newsletter-form input {
+  min-height: 44px;
+  height: 44px;
+}
+.newsletter-form button {
+  width: 44px;
+  min-width: 44px;
+}
+.footer-col__logo {
+  display: block;
+  height: 31px;
+  width: auto;
+  margin-bottom: 16px;
+}
+.social-chip {
+  width: 44px;
+  height: 44px;
+}
+.footer-col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+}
+
+@media (max-width: 899px) {
+  .footer-col__title {
+    font-size: 1.375rem;
+    padding-top: 22px;
+    margin-bottom: 12px;
+  }
+  .footer-utilities {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .footer-utilities ul {
+    justify-content: flex-start;
+    gap: 8px 16px;
+  }
+  .footer-utilities a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ------------------------------------------------------------ header 390px */
+@media (max-width: 899px) {
+  .site-header__logo,
+  .site-header__actions {
+    height: 48px;
+  }
+  .site-header__shop {
+    height: 44px;
+    padding-inline: 16px;
+  }
+  .site-header__icon {
+    width: 44px;
+    height: 44px;
+  }
+  .nav-product {
+    min-height: 44px;
+  }
+  .nav-menu__links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav-utility a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ------------------------------------------------------------ 390px safety
+   Marquee, benefits type, and the photo fan may overhang; clip at the band. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.press,
+.socialfan,
+.benefits,
+.ctabanner {
+  overflow-x: clip;
+}
+.hero__inner,
+.fave__grid,
+.vprops__cards,
+.tested__inner,
+.buybox-grid,
+.finalcta__panel {
+  min-width: 0;
+}
+
+@media (max-width: 389px) {
+  .hero__props {
+    gap: 6px;
+  }
+  .hero__prop-value {
+    width: 64px;
+    height: 64px;
+  }
+  .hero__prop-number {
+    font-size: 1.65rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .hero__cta,
+  .finalcta__ctas .btn,
+  .vprop-card {
+    min-width: 0;
+  }
+  .finalcta__ctas {
+    width: 100%;
+  }
+  .finalcta__ctas .btn {
+    flex: 1 1 140px;
+    min-height: 44px;
+  }
+  .finalcta__copy {
+    padding: 28px 20px;
+  }
+}
+
+/* Collection grid already collapses at 540px; keep cards from overflowing. */
+.collection-grid,
+.cgrid-card {
+  min-width: 0;
+}

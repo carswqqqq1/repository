@@ -1,0 +1,236 @@
+/* Type scale + shared primitives.
+   Sizes/weights/tracking are lifted from the live gruns.co theme utilities
+   (d1–d6 display, h1–h6, body-1–5, label-1–4, eyebrow-1–4). */
+
+.page {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* ------------------------------------------------------------- display */
+.d1,
+.d2,
+.d3,
+.d4,
+.d5,
+.d6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0;
+}
+.d1 {
+  font-size: clamp(3.25rem, 6.7vw, 6rem);
+  line-height: 1;
+}
+.d2 {
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+.d3 {
+  font-size: clamp(2.5rem, 4.45vw, 4rem);
+  line-height: 1;
+}
+.d4 {
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  line-height: 1;
+}
+.d5 {
+  font-size: clamp(1.875rem, 2.9vw, 2.625rem);
+  line-height: 1;
+}
+.d6 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------- heading */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--font-primary);
+  margin: 0;
+}
+.h1 {
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+.h2 {
+  font-size: clamp(2rem, 3.05vw, 2.75rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+.h3 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+.h4 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+.h5 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+.h6 {
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+
+/* ------------------------------------------------------------------ body */
+.body-1,
+.body-2,
+.body-3,
+.body-4,
+.body-5 {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  margin: 0;
+}
+.body-1 {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+.body-2 {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.body-3 {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.body-4 {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.body-5 {
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------------- label */
+.label-1,
+.label-2,
+.label-3 {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.label-1 {
+  font-size: 1rem;
+  line-height: 1;
+}
+.label-2 {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+.label-3 {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------- eyebrow */
+.eyebrow-2,
+.eyebrow-3,
+.eyebrow-4 {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}
+.eyebrow-2 {
+  font-size: 1rem;
+  line-height: 1;
+}
+.eyebrow-3 {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+.eyebrow-4 {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.accent-green {
+  color: var(--color-green);
+}
+.accent-yellow {
+  color: var(--color-yellow);
+}
+
+/* --------------------------------------------------------------- buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 56px;
+  padding-inline: 32px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.12s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--color-green);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-green-strong);
+}
+.btn-secondary {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+}
+.btn-secondary:hover {
+  background: var(--color-yellow-strong);
+}
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid currentColor;
+  color: inherit;
+}
+.btn-sm {
+  height: 44px;
+  padding-inline: 24px;
+  font-size: 1rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ----------------------------------------------------------------- stars */
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  flex-shrink: 0;
+}
