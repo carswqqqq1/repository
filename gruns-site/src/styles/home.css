@@ -85,6 +85,10 @@
 #home-page-root .spark--2 { top: 8%; left: 42%; }
 #home-page-root .spark--3 { top: 30%; right: 8%; }
 #home-page-root .gummy { position: absolute; width: 54px; height: 66px; background: radial-gradient(circle at 30% 25%, #3f7a4d, #122e1b); border-radius: 22px; opacity: 0.95; }
+#home-page-root .gummy::after {
+  content: ""; position: absolute; left: 12px; top: 10px; width: 14px; height: 20px;
+  background: rgba(255, 255, 255, 0.35); border-radius: 50%; transform: rotate(-18deg);
+}
 #home-page-root .gummy i { position: absolute; background: inherit; border-radius: 50%; }
 #home-page-root .gummy i:nth-child(1) { width: 20px; height: 20px; left: -8px; top: 8px; }
 #home-page-root .gummy i:nth-child(2) { width: 20px; height: 20px; right: -8px; top: 8px; }
@@ -115,7 +119,7 @@
 #home-page-root .card-face {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   backface-visibility: hidden; border-radius: 10px; font-family: var(--font-display);
-  border: 2px solid var(--gruns-green);
+  border: 2px solid var(--gruns-green); box-shadow: 0 3px 10px rgba(6, 60, 30, 0.22);
 }
 #home-page-root .card-back { background: #fff; color: var(--gruns-green); font-size: 24px; }
 #home-page-root .card-front {
@@ -186,7 +190,7 @@
 }
 
 /* ---------- gradient + trust ---------- */
-#home-page-root .gradient-band { height: 300px; background: linear-gradient(180deg, #0e7a3d 0%, #6faf2f 45%, #f5b800 75%, var(--gruns-yellow) 100%); }
+#home-page-root .gradient-band { height: 640px; background: linear-gradient(180deg, #0e7a3d 0%, #6faf2f 45%, #f5b800 75%, var(--gruns-yellow) 100%); }
 #home-page-root .trust {
   background: var(--gruns-green-dark); color: #fff;
   display: grid; grid-template-columns: 1fr 1.4fr; gap: 26px;
@@ -213,13 +217,22 @@
   max-width: 1080px; margin: 0 auto; align-items: start;
 }
 #home-page-root .gallery { display: flex; flex-direction: column; }
-#home-page-root .thumbs { display: flex; gap: 8px; list-style: none; padding: 0; margin: 0 0 10px; }
-#home-page-root .thumbs li { width: 46px; height: 46px; border: 1.5px solid #ccc; border-radius: 8px; background: #f6f2e6; }
+#home-page-root .gallery-row { display: flex; flex-direction: row; gap: 12px; align-items: stretch; }
+#home-page-root .thumbs { display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0; }
+#home-page-root .thumbs li { width: 58px; height: 64px; border: 1.5px solid #ccc; border-radius: 8px; background: #f6f2e6; }
 #home-page-root .thumbs li.is-active { border-color: var(--gruns-green); background: #e4efe2; }
 #home-page-root .main-shot {
-  border: 2px solid var(--gruns-ink); border-radius: 12px; min-height: 420px;
+  flex: 1; border: 2px solid var(--gruns-ink); border-radius: 12px; min-height: 560px;
   display: flex; align-items: center; justify-content: center; background: #fffdf6;
+  position: relative; overflow: hidden;
 }
+#home-page-root .shot-badge {
+  position: absolute; right: 0; bottom: 0; width: 46%;
+  background: var(--gruns-green-dark); color: #fff; text-align: center;
+  padding: 16px 10px; font-family: var(--font-display);
+}
+#home-page-root .shot-badge b { display: block; color: #7ee2a0; font-size: 26px; line-height: 1.1; }
+#home-page-root .shot-badge span { font-size: 14px; }
 #home-page-root .main-pack {
   width: 240px; min-height: 300px; border-radius: 16px; padding: 26px 18px;
   background: linear-gradient(165deg, #17a84e, #073d20); color: var(--gruns-yellow);
@@ -253,6 +266,13 @@
   position: absolute; top: 6px; left: 8px; background: #a5368b; color: #fff;
   font-size: 10px; padding: 2px 8px; border-radius: var(--radius-pill);
 }
+#home-page-root .flavor-swatch {
+  display: block; width: 64px; height: 64px; margin: 0 auto 8px; border-radius: 10px;
+  font-family: var(--font-display); font-style: italic; font-weight: 900; font-size: 15px;
+  line-height: 64px; color: var(--gruns-yellow); text-align: center;
+}
+#home-page-root .flavor-swatch--original { background: linear-gradient(165deg, #17a84e, #073d20); }
+#home-page-root .flavor-swatch--shrek { background: linear-gradient(165deg, #8e2f9e, #0a5c2e); }
 #home-page-root .sugar-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 #home-page-root .sugar { padding: 12px; }
 #home-page-root .save-chip { font-size: 11px; font-weight: 400; border: 1px dashed #999; border-radius: 6px; padding: 2px 8px; margin-left: 6px; }

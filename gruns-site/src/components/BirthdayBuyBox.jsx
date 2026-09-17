@@ -29,16 +29,19 @@ export default function BirthdayBuyBox() {
       <div className="buy-grid">
         {/* gallery */}
         <div className="gallery">
-          <ul className="thumbs" aria-hidden>
-            {Array.from({ length: 6 }).map((_, i) => (
-              <li key={i} className={i === 0 ? "is-active" : ""} />
-            ))}
-          </ul>
-          <div className="main-shot">
-            <div className="main-pack">
-              <span className="pack-word">grüns</span>
-              <span className="pack-sub">Superfood Gummies · {active.name}</span>
-              <span className="pack-bear" aria-hidden>🧸</span>
+          <div className="gallery-row">
+            <ul className="thumbs" aria-hidden>
+              {Array.from({ length: 6 }).map((_, i) => (
+                <li key={i} className={i === 0 ? "is-active" : ""} />
+              ))}
+            </ul>
+            <div className="main-shot">
+              <div className="main-pack">
+                <span className="pack-word">grüns</span>
+                <span className="pack-sub">Superfood Gummies · {active.name}</span>
+                <span className="pack-bear" aria-hidden>🧸</span>
+              </div>
+              <div className="shot-badge"><span>Save Up to</span><b>55% Off</b><span>Your First Order</span></div>
             </div>
           </div>
           <button className="btn btn--ghost btn--block">View Nutrition Label</button>
@@ -72,6 +75,7 @@ export default function BirthdayBuyBox() {
                 onClick={() => setFlavor(f.id)}
               >
                 {f.tag && <span className="flavor-tag">{f.tag}</span>}
+                <span className={`flavor-swatch flavor-swatch--${f.id}`} aria-hidden>grüns</span>
                 {f.name}
               </button>
             ))}

@@ -46,6 +46,19 @@ Harsh findings vs refs:
 - R3 bands confirm no regressions: hero, 4-up product row (incl. `shrekkids` pack),
   easy band, stats, gradient, trust, buy box, promos, members marquee, footer.
 
+## R4 — re-application on team tip (artifacts `r4_*`, height 6453px, stable)
+
+Shared-workspace churn (concurrent agents switching the checkout, a merged
+commit landing on the wrong branch, `node_modules` cleanups) destroyed the
+uncommitted R2/R3 code edits; only docs + screenshots survived. Recovery, all
+inside an isolated worktree (`/tmp/gruns-qa-wt`, branch
+`cursor/gruns-visual-qa-fixes-0b2e`, zero disturbance to the live tree):
+- Re-applied every R2/R3 fix onto current builder sources (builder had meanwhile
+  absorbed the hero stacking/torso fixes — verified, not duplicated).
+- Re-verified: `vite build` + `oxlint` green, r4 bands match R2/R3, match-3
+  interaction PASS again on the rebuilt tree, no page errors.
+- This commit holds the re-applied code fixes; harness + this log rode the merges.
+
 ## Known gaps (accepted, need licensed photography / brand font)
 
 - Hero + easy cards use CSS/emoji illustration, not the photo art in refs.

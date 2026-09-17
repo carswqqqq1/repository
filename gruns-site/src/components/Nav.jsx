@@ -65,6 +65,7 @@ export default function Nav() {
       <div className="announcement-bar" role="region" aria-label="Promotions">
         <Link to="/">
           <strong>🎈🎂 IT&rsquo;S GR&Uuml;NS&rsquo; BIRTHDAY! 🎂🎈</strong>
+          <br />
           <span> WE LOWERED OUR PRICE TO CELEBRATE</span>
         </Link>
       </div>
