@@ -12,7 +12,10 @@ export default function MembersSection() {
         </div>
       </section>
       <section className="members" aria-label="Members">
-        <h2>1 MILLION MEMBERS.<br />WE&rsquo;VE BEEN<br />GETTING AROUND<br /> LATELY.</h2>
+        <h2>
+          <span className="hl">1 MILLION MEMBERS.</span>
+          <br />WE&rsquo;VE BEEN<br />GETTING AROUND
+        </h2>
         <div className="marquee" aria-hidden>
           <span>★ 60+ INGREDIENTS ★ 21 VITAMINS ★ 6G FIBER ★ 1 PACK ★ GRÜNS ★</span>
           <span>★ 60+ INGREDIENTS ★ 21 VITAMINS ★ 6G FIBER ★ 1 PACK ★ GRÜNS ★</span>

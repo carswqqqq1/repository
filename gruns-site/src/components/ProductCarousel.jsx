@@ -1,17 +1,6 @@
 import { Link } from "react-router-dom";
 import { PRODUCTS } from "../data/products";
 
-function Pack({ pack, badge, sub }) {
-  return (
-    <div className={`pack pack--${pack}`}>
-      <span className="pack-badge">{badge}</span>
-      <span className="pack-word">grüns</span>
-      <span className="pack-sub">{sub}</span>
-      <span className="pack-bear" aria-hidden>🧸</span>
-    </div>
-  );
-}
-
 export default function ProductCarousel() {
   return (
     <section className="shop" id="shop" aria-label="Shop best sellers">
@@ -23,9 +12,9 @@ export default function ProductCarousel() {
       <div className="carousel">
         {PRODUCTS.map((p) => (
           <article className="product-card" key={p.id}>
-            <div className="product-media" style={{ background: p.wash }}>
+            <div className="product-media">
+              <img className="product-photo" src={p.image} alt={`${p.name} pouch of Grüns superfood gummies`} loading="lazy" />
               {p.tag && <span className="product-tag">{p.tag}</span>}
-              <Pack pack={p.pack} badge={p.badge} sub={p.sub} />
             </div>
             <h3 className="product-name">{p.name}</h3>
             <p className="product-price">Starts at {p.price} <s>{p.compareAt}</s></p>

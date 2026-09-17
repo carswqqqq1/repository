@@ -3,10 +3,8 @@ export default function ProductGridCard({ item, theme }) {
   if (theme === "snackshack") {
     return (
       <article className="cgrid-card cgrid-card--merch">
-        <div className="cgrid-media cgrid-media--merch" style={{ background: item.swatch }}>
-          <span className="cgrid-merch-icon" aria-hidden="true">
-            {item.icon}
-          </span>
+        <div className="cgrid-media cgrid-media--merch">
+          <img className="cgrid-photo" src={item.image} alt={item.name} loading="lazy" />
         </div>
         <div className="cgrid-body">
           <h3 className="cgrid-name">{item.name}</h3>
@@ -22,16 +20,14 @@ export default function ProductGridCard({ item, theme }) {
 
   return (
     <article className="cgrid-card">
-      <div className="cgrid-media" style={{ background: item.wash }}>
+      <div className="cgrid-media">
         {item.tag ? <span className="cgrid-tag">{item.tag}</span> : null}
-        <div className={`cgrid-pouch cgrid-pouch--${item.pack}`}>
-          <span className="cgrid-pouch-badge">{item.badge}</span>
-          <span className="cgrid-pouch-word">grüns</span>
-          <span className="cgrid-pouch-sub">{item.sub}</span>
-          <span className="cgrid-pouch-bear" aria-hidden="true">
-            🧸
-          </span>
-        </div>
+        <img
+          className="cgrid-photo"
+          src={item.image}
+          alt={`${item.name} pouch of superfood gummies`}
+          loading="lazy"
+        />
       </div>
       <div className="cgrid-body">
         <h3 className="cgrid-name">{item.name}</h3>

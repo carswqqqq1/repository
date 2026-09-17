@@ -1,8 +1,33 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FLAVORS = [
-  { id: "original", name: "Original", note: "Where fresh strawberries meets clean greens." },
-  { id: "shrek", name: "Berry Far Far Away", note: "Where juicy raspberry meets fresh blueberry.", tag: "Brand New" },
+  {
+    id: "original",
+    name: "Original",
+    note: "Where fresh strawberries meets clean greens.",
+    swatch: "/images/pouch-og-adults.webp",
+  },
+  {
+    id: "shrek",
+    name: "Berry Far Far Away",
+    note: "Where juicy raspberry meets fresh blueberry.",
+    tag: "Brand New",
+    swatch: "/images/pouch-shrek-adults.webp",
+  },
+];
+
+/* Mirrors the gruns.co PDP gallery order: hero promo render, supplement
+   facts, social proof, first-30-days, clinical results, lifestyle. */
+const GALLERY = [
+  {
+    src: "/images/gal-bday-adults.webp",
+    alt: "Grüns 28-pack birthday promo render with an It's Our Birthday starburst and Save Up To 55% Off badge.",
+  },
+  { src: "/images/nutrition-label-adults.jpg", alt: "Supplement facts panel for Grüns Superfood Gummies." },
+  { src: "/images/gal-reviews.webp", alt: "Customer testimonials, 1,000,000+ customers and a 4.8 star rating." },
+  { src: "/images/gal-expect.webp", alt: "What to expect taking Grüns over the first 30 days." },
+  { src: "/images/gal-clinical.webp", alt: "Clinical study results showing improved vitamin C and folate levels after 90 days." },
+  { src: "/images/gal-benefits.webp", alt: "Grüns supports digestion, immunity and energy." },
 ];
 
 const FAQS = [
@@ -20,8 +45,25 @@ export default function BirthdayBuyBox() {
   const [adults, setAdults] = useState(1);
   const [plan, setPlan] = useState("sub");
   const [open, setOpen] = useState(0);
+  const [shot, setShot] = useState(0);
+  const [stickyAtc, setStickyAtc] = useState(false);
+  const ctaRef = useRef(null);
 
   const active = FLAVORS.find((f) => f.id === flavor);
+  const activeShot = GALLERY[shot];
+
+  /* The in-page "Start Now" button hands off to a fixed bar once it scrolls
+     off the top, the way the real PDP keeps the offer reachable. */
+  useEffect(() => {
+    const cta = ctaRef.current;
+    if (!cta) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => setStickyAtc(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
+    observer.observe(cta);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="birthday" id="buy" aria-label="Birthday sale buy box">
@@ -30,18 +72,23 @@ export default function BirthdayBuyBox() {
         {/* gallery */}
         <div className="gallery">
           <div className="gallery-row">
-            <ul className="thumbs" aria-hidden>
-              {Array.from({ length: 6 }).map((_, i) => (
-                <li key={i} className={i === 0 ? "is-active" : ""} />
+            <ul className="thumbs">
+              {GALLERY.map((g, i) => (
+                <li key={g.src}>
+                  <button
+                    type="button"
+                    className={`thumb ${i === shot ? "is-active" : ""}`}
+                    aria-label={`Show image ${i + 1} of ${GALLERY.length}`}
+                    aria-current={i === shot}
+                    onClick={() => setShot(i)}
+                  >
+                    <img src={g.src} alt="" loading="lazy" />
+                  </button>
+                </li>
               ))}
             </ul>
             <div className="main-shot">
-              <div className="main-pack">
-                <span className="pack-word">grüns</span>
-                <span className="pack-sub">Superfood Gummies · {active.name}</span>
-                <span className="pack-bear" aria-hidden>🧸</span>
-              </div>
-              <div className="shot-badge"><span>Save Up to</span><b>55% Off</b><span>Your First Order</span></div>
+              <img src={activeShot.src} alt={activeShot.alt} />
             </div>
           </div>
           <button className="btn btn--ghost btn--block">View Nutrition Label</button>
@@ -75,7 +122,7 @@ export default function BirthdayBuyBox() {
                 onClick={() => setFlavor(f.id)}
               >
                 {f.tag && <span className="flavor-tag">{f.tag}</span>}
-                <span className={`flavor-swatch flavor-swatch--${f.id}`} aria-hidden>grüns</span>
+                <img className="flavor-swatch" src={f.swatch} alt="" loading="lazy" />
                 {f.name}
               </button>
             ))}
@@ -114,7 +161,7 @@ export default function BirthdayBuyBox() {
             </div>
           </div>
 
-          <button className="btn btn--green btn--xl btn--block">Start Now</button>
+          <button ref={ctaRef} className="btn btn--green btn--xl btn--block">Start Now</button>
           <p className="auto-note">◈ DISCOUNT AUTO-APPLIED</p>
           <p className="guarantee-note"><strong>Less than 1%</strong> of customers use our Money-Back Guarantee</p>
 
@@ -147,6 +194,12 @@ export default function BirthdayBuyBox() {
             <li>🍇 Whole Fruits</li>
           </ul>
         </div>
+      </div>
+
+      <div className={`sticky-atc ${stickyAtc ? "is-visible" : ""}`} aria-hidden={!stickyAtc}>
+        <button className="btn btn--green sticky-atc-btn" tabIndex={stickyAtc ? 0 : -1}>
+          Save 55% + Free Shipping
+        </button>
       </div>
     </section>
   );

@@ -47,26 +47,21 @@ export default function HeroGame() {
   return (
     <section className="hero" aria-label="Try Your Luck game">
       {/* left art panel */}
-      <div className="hero-art" aria-hidden>
-        <div className="hero-blob" />
-        <span className="spark spark--1">✦</span>
-        <span className="spark spark--2">✦</span>
-        <span className="spark spark--3">✦</span>
-        <div className="gummy gummy--1"><i /><i /><i /></div>
-        <div className="gummy gummy--2"><i /><i /><i /></div>
-        <div className="gummy gummy--3"><i /><i /><i /></div>
-        <div className="hero-person">
-          <div className="hero-hair" />
-          <div className="hero-shoulders" />
-          <div className="hero-face">
-            <span className="eye eye--l" /><span className="eye eye--r" />
-            <span className="smile" />
-          </div>
-          <div className="hero-pack">
-            <span className="hero-pack-bear">🐻</span>
-            <span className="hero-pack-word">grüns</span>
-          </div>
-        </div>
+      <div className="hero-art">
+        <div className="hero-blob" aria-hidden />
+        <span className="spark spark--1" aria-hidden>✦</span>
+        <span className="spark spark--2" aria-hidden>✦</span>
+        <span className="spark spark--3" aria-hidden>✦</span>
+        <img className="gummy gummy--1" src="/images/gummy-bear.webp" alt="" />
+        <img className="gummy gummy--2" src="/images/gummy-bear.webp" alt="" />
+        <img className="gummy gummy--3" src="/images/gummy-bear.webp" alt="" />
+        <img
+          className="hero-photo"
+          src="/images/hero-lifestyle.webp"
+          width="900"
+          height="646"
+          alt="A smiling woman tipping a Grüns gummy out of a single-serve pouch into her hand."
+        />
       </div>
 
       {/* right game panel */}

@@ -2,17 +2,20 @@ const CARDS = [
   {
     title: "Delicious Flavor",
     text: "Tastes like a treat, works like a supplement. You'll actually look forward to taking it.",
-    art: "flavor",
+    image: "/images/easy-flavor.webp",
+    alt: "A smiling man holding a single-serve Grüns pouch.",
   },
   {
     title: "Rip. Tip. Enjoy.",
     text: "Toss it in your bag. Pop it at your desk. No shaker, no water, no routine overhaul required.",
-    art: "rip",
+    image: "/images/easy-rip.webp",
+    alt: "A Grüns pouch tucked under an arm alongside a pair of dumbbells.",
   },
   {
     title: "Daily Nutrition",
     text: "60+ ingredients. 20+ vitamins and minerals. One convenient pack.",
-    art: "daily",
+    image: "/images/easy-daily.webp",
+    alt: "A Grüns pouch ringed by callouts for organic fruits, vegetables, vitamins and antioxidants.",
   },
 ];
 
@@ -25,11 +28,7 @@ export default function EasySection() {
       <div className="easy-grid">
         {CARDS.map((c) => (
           <article className="easy-card" key={c.title}>
-            <div className={`easy-art easy-art--${c.art}`} aria-hidden>
-              {c.art === "flavor" && <span className="easy-emoji">😋</span>}
-              {c.art === "rip" && <span className="easy-pack">grüns</span>}
-              {c.art === "daily" && <span className="easy-pack easy-pack--big">grüns<span>Superfoods</span></span>}
-            </div>
+            <img className="easy-art" src={c.image} alt={c.alt} loading="lazy" />
             <h3>{c.title}</h3>
             <p>{c.text}</p>
           </article>
