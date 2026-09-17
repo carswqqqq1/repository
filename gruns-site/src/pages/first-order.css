@@ -73,7 +73,7 @@
 .fo-tested ul { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 32px; list-style:'⊗  '; color:#d95200; text-align:left; }
 .fo-tested li::first-line { color:#111; }
 
-.fo-buybox { min-height:4200px; padding:75px 5% 140px; background:white; }
+.fo-buybox { min-height:2700px; padding:75px 5% 140px; background:white; }
 .fo-buybox>h2 { color:var(--green); text-align:center; margin-bottom:45px; }
 .fo-product-grid { max-width:1250px; margin:auto; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(420px,.85fr); gap:52px; align-items:start; }
 .fo-gallery { position:sticky; top:20px; }
