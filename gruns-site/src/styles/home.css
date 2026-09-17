@@ -37,18 +37,19 @@
 /* ---------- hero / game ---------- */
 #home-page-root .hero {
   display: grid; grid-template-columns: 1.15fr 0.85fr;
-  min-height: 760px; position: relative; overflow: hidden;
+  min-height: 660px; position: relative; overflow: hidden;
   background: linear-gradient(128deg, #fffce4 0%, #fbf5db 30%, #ece8c8 46%, #b9cf78 64%, #4aa22a 84%, #17820b 100%);
 }
 #home-page-root .hero-art { position: relative; overflow: hidden; min-height: 480px; }
 #home-page-root .hero-blob {
-  position: absolute; left: 10%; bottom: -14%; width: 74%; height: 80%;
-  background: var(--gruns-yellow);
+  position: absolute; left: 22%; bottom: -16%; width: 62%; height: 74%;
+  background: var(--gruns-yellow); z-index: 1;
   border-radius: 46% 54% 52% 48% / 58% 60% 40% 42%;
 }
 #home-page-root .hero-photo {
-  position: absolute; left: 8%; bottom: 0; width: min(74%, 470px);
-  border-radius: 20px 20px 0 0; display: block; z-index: 2;
+  position: absolute; left: 5%; bottom: 0; z-index: 2; display: block;
+  width: min(76%, 560px); height: auto;
+  border-radius: 24px 24px 0 0;
 }
 #home-page-root .spark { position: absolute; color: var(--gruns-yellow); font-size: 40px; z-index: 3; }
 #home-page-root .spark--1 { left: 3%; bottom: 16%; }
@@ -201,7 +202,7 @@
   position: absolute; top: 6px; left: 8px; background: #a5368b; color: #fff;
   font-size: 10px; padding: 2px 8px; border-radius: var(--radius-pill);
 }
-#home-page-root .flavor-swatch { display: block; width: 74px; height: 74px; margin: 0 auto 8px; object-fit: contain; }
+#home-page-root .flavor-swatch { display: block; width: 92px; height: 92px; margin: 0 auto 6px; object-fit: contain; }
 #home-page-root .sugar-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 #home-page-root .sugar { padding: 12px; }
 #home-page-root .save-chip { font-size: 11px; font-weight: 400; border: 1px dashed #999; border-radius: 6px; padding: 2px 8px; margin-left: 6px; }
@@ -264,8 +265,10 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 1020px) {
-  #home-page-root .hero { grid-template-columns: 1fr; }
-  #home-page-root .hero-art { min-height: 380px; }
+  #home-page-root .hero { grid-template-columns: 1fr; min-height: 0; }
+  #home-page-root .hero-art { min-height: 400px; }
+  #home-page-root .hero-photo { width: min(84%, 400px); }
+  #home-page-root .hero-blob { left: 30%; width: 56%; }
   #home-page-root .carousel { grid-template-columns: repeat(2, 1fr); }
   #home-page-root .easy-grid { grid-template-columns: 1fr; max-width: 520px; }
   #home-page-root .trust { grid-template-columns: 1fr; }

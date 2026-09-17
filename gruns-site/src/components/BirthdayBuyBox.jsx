@@ -53,16 +53,29 @@ export default function BirthdayBuyBox() {
   const activeShot = GALLERY[shot];
 
   /* The in-page "Start Now" button hands off to a fixed bar once it scrolls
-     off the top, the way the real PDP keeps the offer reachable. */
+     off the top, the way the real PDP keeps the offer reachable. Measured on
+     scroll rather than with IntersectionObserver so a jump straight past the
+     button (anchor link, restored scroll position) still surfaces the bar. */
   useEffect(() => {
     const cta = ctaRef.current;
     if (!cta) return undefined;
-    const observer = new IntersectionObserver(
-      ([entry]) => setStickyAtc(!entry.isIntersecting && entry.boundingClientRect.top < 0),
-      { threshold: 0 },
-    );
-    observer.observe(cta);
-    return () => observer.disconnect();
+    let frame = requestAnimationFrame(measure);
+
+    function measure() {
+      frame = 0;
+      setStickyAtc(cta.getBoundingClientRect().bottom < 0);
+    }
+    function schedule() {
+      if (!frame) frame = requestAnimationFrame(measure);
+    }
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
   }, []);
 
   return (

@@ -59,7 +59,7 @@ export default function HeroGame() {
           className="hero-photo"
           src="/images/hero-lifestyle.webp"
           width="900"
-          height="646"
+          height="672"
           alt="A smiling woman tipping a Grüns gummy out of a single-serve pouch into her hand."
         />
       </div>

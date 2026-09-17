@@ -95,9 +95,10 @@
   display: block;
 }
 
+/* Merch shots are studio cut-outs on white; some are 3:4, so pad rather than
+   crop and let the white tile edge blend into the photo background. */
 .cgrid-media--merch {
-  background: var(--color-neutral-off-white);
-  padding: 0;
+  background: #fff;
 }
 
 .cgrid-media--merch .cgrid-photo {
