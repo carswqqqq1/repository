@@ -446,12 +446,50 @@
   color: var(--color-secondary);
 }
 
+.footer-brandrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  padding: 34px 0 6px;
+}
+.footer-wordmark {
+  width: 172px;
+  height: auto;
+}
+.social-chip {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+  color: #00381d;
+  --icon-knockout: #fff;
+  transition: transform 0.2s ease;
+}
+.social-chip svg {
+  width: 19px;
+  height: 19px;
+}
+.social-chip:hover {
+  transform: translateY(-2px);
+}
+.footer-col__logo {
+  display: block;
+  height: 31px;
+  width: auto;
+  margin-bottom: 16px;
+}
+
 .footer-moon {
   margin-top: 64px;
   display: grid;
   place-items: center;
   padding-bottom: 24px;
 }
-.footer-moon__logo {
-  color: rgba(255, 255, 255, 0.12);
+.footer-moon img {
+  width: min(92vw, 320px);
+  height: auto;
+  opacity: 0.14;
 }

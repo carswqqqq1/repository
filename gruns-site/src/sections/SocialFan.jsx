@@ -1,5 +1,5 @@
 import SocialIcon from '../components/SocialIcon.jsx';
-import { socialImages } from '../data/site.js';
+import { brandAssets, socialImages } from '../data/site.js';
 
 const NETWORKS = ['instagram', 'tiktok', 'youtube', 'facebook'];
 
@@ -20,6 +20,14 @@ export default function SocialFan() {
           ))}
         </ul>
       </div>
+
+      <img
+        className="socialfan__wordmark"
+        src={brandAssets.bearNecessities}
+        alt=""
+        loading="lazy"
+        aria-hidden="true"
+      />
 
       <div className="socialfan__fan" aria-hidden="true">
         {socialImages.map((src, i) => {

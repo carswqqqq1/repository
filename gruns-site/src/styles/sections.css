@@ -526,13 +526,53 @@
   min-height: 118px;
 }
 .tested__callouts img {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 }
 .tested__callouts p {
   font-size: 0.8125rem;
   line-height: 1.25;
   max-width: 14ch;
+}
+
+/* ==========================================================================
+   Promo duo — full-width yellow band with paired cards
+   ========================================================================== */
+.promo-duo-band {
+  background: var(--color-yellow);
+  padding-block: clamp(20px, 4vw, 36px);
+}
+.promo-duo-band__grid {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 768px) {
+  .promo-duo-band__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+.promo-duo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 40px);
+  min-height: 220px;
+}
+.promo-duo-card p {
+  margin: 0;
+  text-wrap: balance;
+}
+.promo-duo-card--green {
+  background: var(--color-green);
+  color: #fff;
+}
+.promo-duo-card--cream {
+  background: var(--color-off-white);
+  color: var(--color-ink);
 }
 
 /* ==========================================================================
@@ -615,13 +655,21 @@
   padding-inline: var(--page-gutter);
 }
 .socialfan__heading {
+  max-width: 880px;
+  margin: 0 auto;
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4.6vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 6.1vw, 5.5rem);
+  line-height: 0.8;
   text-transform: uppercase;
-  color: var(--color-ink);
-  margin: 0;
+  color: #0a1912;
   text-wrap: balance;
+}
+.socialfan__wordmark {
+  display: block;
+  width: min(92vw, 420px);
+  height: auto;
+  margin: 28px auto 0;
+  opacity: 0.92;
 }
 .socialfan__heading strong {
   display: block;

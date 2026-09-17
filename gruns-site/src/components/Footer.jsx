@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo.jsx';
-import SocialIcon from './SocialIcons.jsx';
-import { footerColumns, legalLinks } from '../data/site.js';
-import { SOCIAL_LINKS } from '../data/social.js';
+import SocialIcon from './SocialIcon.jsx';
+import { brandAssets, footerColumns, img, legalLinks } from '../data/site.js';
+
+const NETWORKS = ['instagram', 'tiktok', 'youtube', 'facebook'];
 
 export default function Footer() {
   const [mode, setMode] = useState('sms');
@@ -44,7 +44,11 @@ export default function Footer() {
         <nav className="footer-nav" aria-label="Footer navigation">
           {footerColumns.map((col) => (
             <div className="footer-col" key={col.title}>
-              <p className="footer-col__title d6">{col.title}</p>
+              {col.title === 'ü snacks' ? (
+                <img className="footer-col__logo" src={img('usnacks-logo.svg')} alt="Ü Snacks" width={100} height={31} />
+              ) : (
+                <p className="footer-col__title d6">{col.title}</p>
+              )}
               <ul>
                 {col.links.map((l) => (
                   <li key={l.label}>
@@ -59,12 +63,13 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="footer-mid page">
+      <div className="footer-brandrow page">
+        <img className="footer-wordmark" src={brandAssets.wordmarkYellow} alt="Grüns" width={172} height={64} />
         <ul className="social-links" aria-label="Social media">
-          {SOCIAL_LINKS.map((item) => (
-            <li key={item.id}>
-              <a href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
-                <SocialIcon id={item.id} />
+          {NETWORKS.map((n) => (
+            <li key={n}>
+              <a href="#" className="social-chip" aria-label={n}>
+                <SocialIcon name={n} />
               </a>
             </li>
           ))}
@@ -99,7 +104,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-moon">
-        <Logo width={220} className="footer-moon__logo" />
+        <img src={brandAssets.bearNecessities} alt="The Bear Necessities" loading="lazy" width={280} height={80} />
       </div>
     </footer>
   );

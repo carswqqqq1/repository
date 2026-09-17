@@ -1,0 +1,200 @@
+/* Nav drawer — matches the live gruns.co menu: compact product rows with
+   thumbnails and badges, a promo card, collapsed link groups, and the green
+   account pill. Loaded after chrome.css so it supersedes the earlier
+   text-only drawer rules. */
+
+.site-header__logo,
+.site-header__actions {
+  color: #fff;
+}
+.site-header__icon {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.site-header__icon:hover {
+  background: rgba(0, 44, 23, 0.35);
+}
+
+.navdrawer {
+  width: min(calc(100vw - 32px), 302px);
+}
+
+.navdrawer__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: min(calc(100svh - 132px), 720px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 14px;
+  background: var(--color-lt-yellow);
+  padding: 12px;
+  box-shadow: 0 18px 44px rgba(0, 31, 16, 0.22);
+}
+.navdrawer__panel > * {
+  flex: 0 0 auto;
+}
+
+.navdrawer__eyebrow {
+  margin: 2px 0 -2px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+
+/* ------------------------------------------------------------- products */
+.navdrawer__products {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navdrawer__product {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  padding: 5px 6px;
+  transition: background-color 0.18s ease;
+}
+.navdrawer__product:hover {
+  background: var(--color-green-weakest);
+}
+.navdrawer__thumb {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.navdrawer__product-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+.navdrawer__product-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.navdrawer__badge {
+  border-radius: var(--radius-pill);
+  background: var(--color-yellow);
+  padding: 2px 6px;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+/* ----------------------------------------------------------------- promo */
+.navdrawer__promo {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--color-green-weakest);
+}
+.navdrawer__promo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 652 / 264;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------ collapsed groups */
+.navdrawer__sections {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 31, 16, 0.1);
+}
+.navdrawer__section {
+  border-bottom: 1px solid rgba(0, 31, 16, 0.1);
+}
+.navdrawer__toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 6px;
+  border: 0;
+  background: transparent;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.navdrawer__chevron {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.navdrawer__section.is-open .navdrawer__chevron {
+  transform: rotate(180deg);
+}
+.navdrawer__sublinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0 6px 12px;
+  list-style: none;
+}
+.navdrawer__sublinks a {
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+  transition: color 0.18s ease;
+}
+.navdrawer__sublinks a:hover {
+  color: var(--color-green);
+}
+
+/* ---------------------------------------------------------- account + row */
+.navdrawer__account {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--color-green);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  transition: background-color 0.18s ease;
+}
+.navdrawer__account:hover {
+  background: var(--color-green-strong);
+}
+.navdrawer__utility {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
+  padding-bottom: 2px;
+  font-size: 0.75rem;
+  color: var(--color-fg-tertiary);
+}
+.navdrawer__utility a:hover {
+  color: var(--color-green);
+}

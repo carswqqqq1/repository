@@ -1,0 +1,138 @@
+/* Fidelity + 390px polish passes made against side-by-side captures of
+   gruns.co. Loaded last so it settles ties with the band stylesheets. */
+
+/* ------------------------------------------------------------------- hero
+   gruns.co ranges the hero copy left against the photo from 900px up; only
+   the stacked mobile layout centres it. */
+@media (min-width: 900px) {
+  .hero__copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero__rating,
+  .hero__trust {
+    justify-content: flex-start;
+  }
+  .hero__props {
+    justify-items: start;
+    max-width: 440px;
+    margin-inline: 0;
+  }
+  .hero__props li {
+    align-items: center;
+  }
+}
+
+/* ---------------------------------------------------------- find your flavor
+   The four tiles wrap their titles differently, so pin the CTA and the
+   "Learn More" link to the bottom of every card to keep rows aligned. */
+.fave-card__price {
+  margin-bottom: 14px;
+}
+.fave-card__cta {
+  margin-top: auto;
+}
+
+@media (max-width: 899px) {
+  .fave__grid {
+    gap: 22px 12px;
+  }
+  .fave-card__title {
+    font-size: 1rem;
+  }
+  .fave-card__price {
+    font-size: 0.8125rem;
+  }
+}
+
+/* --------------------------------------------------------------- press strip
+   Keep at least one full logo on screen at 390px. */
+@media (max-width: 599px) {
+  .press {
+    padding-block: 14px;
+  }
+  .press__track {
+    gap: 44px;
+  }
+  .press__item img {
+    height: 24px;
+    max-width: 128px;
+  }
+}
+
+/* ----------------------------------------------------------------- buy box
+   The spec column runs far longer than the gallery on desktop, which left a
+   tall empty gutter. Stick the gallery alongside it instead. */
+@media (min-width: 1000px) {
+  .buybox-grid > .gallery {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+}
+
+/* -------------------------------------------------------------- social fan
+   Tighten the gap between the heading and the fan of member photos. */
+.socialfan__fan {
+  height: clamp(168px, 21vw, 300px);
+  margin-top: 18px;
+}
+
+/* ------------------------------------------------------------------ footer
+   Link lists kept the UA list indent, pushing every column off its heading. */
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+}
+.newsletter-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.footer-col__logo {
+  display: block;
+  height: 31px;
+  width: auto;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 899px) {
+  .site-footer {
+    padding: 28px 20px 12px;
+  }
+  .footer-col__title {
+    font-size: 1.375rem;
+    padding-top: 22px;
+    margin-bottom: 12px;
+  }
+  .footer-utilities {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .footer-utilities ul {
+    justify-content: flex-start;
+    gap: 8px 16px;
+  }
+  .footer-moon {
+    margin-top: 36px;
+  }
+}
+
+/* ------------------------------------------------------------ 390px safety
+   Nothing should be able to push the document wider than the viewport; the
+   marquee and photo fan deliberately overhang and are clipped by their band. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.press,
+.socialfan,
+.benefits,
+.ctabanner {
+  overflow-x: clip;
+}

@@ -116,6 +116,7 @@ const ASSETS = [
 
   // Final CTA + footer branding
   ["images/pouch-with-gummies.webp", "pouch_w_gummies.webp_3.webp", 1200],
+  ["images/usnacks-logo.svg", "usnacks-logo.svg", null],
   ["images/gruns-wordmark-yellow.svg", "gruns_logo_yellow.svg", null],
   ["images/bear-necessities.svg", "bear_necessities_dk.svg", null],
   ["images/star-barry.svg", "star_barry.svg", null],

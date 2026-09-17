@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
-import { navProducts, navImage, navMenus } from '../data/site.js';
+import { navProducts, navImage, navMenus, navUtility, navPromoHref } from '../data/site.js';
 
 function CartIcon() {
   return (
@@ -17,8 +17,29 @@ function CartIcon() {
   );
 }
 
+function MenuIcon({ open }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" style={{ width: 18, height: 18 }}>
+      {open ? (
+        <path d="M5 5l10 10M15 5 5 15" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      ) : (
+        <path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      )}
+    </svg>
+  );
+}
+
+function Chevron() {
+  return (
+    <svg className="navdrawer__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [section, setSection] = useState(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -27,13 +48,25 @@ export default function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  const close = () => {
+    setOpen(false);
+    setSection(null);
+  };
+
   return (
     <div className="header-wrap">
       <header className="site-header">
-        {open && <button className="site-nav-overlay" aria-label="Close menu" onClick={() => setOpen(false)} />}
+        {open && <button className="site-nav-overlay" aria-label="Close menu" onClick={close} />}
         <div className="site-header__bar page">
           <Link to="/" aria-label="Grüns — Home" className="site-header__logo">
-            <Logo width={77} />
+            <Logo width={70} />
           </Link>
 
           <div className="site-header__actions">
@@ -45,57 +78,77 @@ export default function Header() {
             </button>
             <button
               className="site-header__icon"
-              aria-label="Menu"
+              aria-label={open ? 'Close menu' : 'Menu'}
               aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => (open ? close() : setOpen(true))}
             >
-              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" style={{ width: 18, height: 18 }}>
-                <path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
-              </svg>
+              <MenuIcon open={open} />
             </button>
           </div>
         </div>
 
-        <div className={`site-nav-drawer${open ? ' is-open' : ''}`}>
-          <div className="site-nav-drawer__panel">
-            <nav className="nav-products">
-              <p className="eyebrow-4 nav-products__label">Shop All</p>
-              {navProducts.map((p) => (
-                <Link key={p.title} to={p.href} className="nav-product" onClick={() => setOpen(false)}>
-                  <img src={p.image} alt={p.title} width={44} height={44} loading="lazy" />
-                  <span className="h6">{p.title}</span>
-                  {p.badge && <span className="nav-product__badge label-3">{p.badge}</span>}
-                </Link>
-              ))}
-            </nav>
+        <div className={`site-nav-drawer navdrawer${open ? ' is-open' : ''}`}>
+          <div className="navdrawer__panel" role="dialog" aria-label="Main menu" aria-hidden={!open}>
+            <p className="navdrawer__eyebrow">Shop All</p>
 
-            <Link to="/products/shrek-gruns" className="nav-promo" onClick={() => setOpen(false)}>
-              <img src={navImage} alt="Shrek Berry Far Far Away is here!" loading="lazy" />
+            <ul className="navdrawer__products">
+              {navProducts.map((p) => (
+                <li key={p.title}>
+                  <Link to={p.href} className="navdrawer__product" onClick={close}>
+                    <img className="navdrawer__thumb" src={p.image} alt="" width={34} height={34} loading="lazy" />
+                    <span className="navdrawer__product-text">
+                      <span className="navdrawer__product-name">{p.title}</span>
+                      {p.badge && <span className="navdrawer__badge">{p.badge}</span>}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <Link to={navPromoHref} className="navdrawer__promo" onClick={close}>
+              <img src={navImage} alt="Berry Far Far Away — the new Grüns flavour" loading="lazy" />
             </Link>
 
-            <div className="nav-menus">
-              {navMenus.map((m) => (
-                <div className="nav-menu" key={m.title}>
-                  <span className="h6">{m.title}</span>
-                  <div className="nav-menu__links">
-                    {m.links.map((l) => (
-                      <Link key={l.label} to={l.href} className="body-3" onClick={() => setOpen(false)}>
-                        {l.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="navdrawer__sections">
+              {navMenus.map((m) => {
+                const isOpen = section === m.title;
+                return (
+                  <section className={`navdrawer__section${isOpen ? ' is-open' : ''}`} key={m.title}>
+                    <button
+                      type="button"
+                      className="navdrawer__toggle"
+                      aria-expanded={isOpen}
+                      onClick={() => setSection(isOpen ? null : m.title)}
+                    >
+                      <span>{m.title}</span>
+                      <Chevron />
+                    </button>
+                    {isOpen && (
+                      <ul className="navdrawer__sublinks">
+                        {m.links.map((l) => (
+                          <li key={l.label}>
+                            <Link to={l.href} onClick={close}>
+                              {l.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+                );
+              })}
             </div>
 
-            <Link to="/pages/account" className="btn btn-primary nav-account" onClick={() => setOpen(false)}>
+            <Link to="/pages/account" className="navdrawer__account" onClick={close}>
               Manage Your Account
             </Link>
 
-            <nav className="nav-utility body-4">
-              <Link to="/pages/our-science">Our Science</Link>
-              <Link to="/pages/find-in-store">Find In Store</Link>
-              <Link to="/pages/u-snacks">Ü Snacks</Link>
+            <nav className="navdrawer__utility" aria-label="Secondary">
+              {navUtility.map((l) => (
+                <Link key={l.label} to={l.href} onClick={close}>
+                  {l.label}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>

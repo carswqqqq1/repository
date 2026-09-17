@@ -10,25 +10,36 @@ export const img = (file) => `/images/${file}`;
 /* ---------------------------------------------------------------- header */
 
 export const navProducts = [
-  { title: 'Grüns Adults', href: '/products/gruns', image: img('nav-og-adults.png'), badge: 'Best Seller' },
+  { title: 'Grüns Adults', href: '/products/gruns', image: img('nav-og-adults.png') },
   {
     title: 'Berry Far Far Away Adults',
     href: '/products/gruns-shrek',
     image: img('nav-shrek-adults.webp'),
-    badge: 'Brand New',
+    badge: 'Brand New!',
   },
   { title: 'Grüns Kids', href: '/products/gruns-kids', image: img('nav-og-kids.webp') },
   {
     title: 'Berry Far Far Away Kids',
     href: '/products/gruns-kids-shrek',
     image: img('nav-shrek-kids.webp'),
-    badge: 'Brand New',
+    badge: 'Brand New!',
   },
 ];
 
 export const navImage = img('nav-promo.webp');
+export const navPromoHref = '/products/gruns-shrek';
 
+/** Collapsed behind chevrons in the mobile drawer, same order as gruns.co. */
 export const navMenus = [
+  {
+    title: 'Rewards',
+    links: [
+      { label: 'VIP Access', href: '/pages/vip' },
+      { label: 'Merch Store', href: '/collections/merch' },
+      { label: 'Refer a Friend', href: '/pages/refer' },
+      { label: 'Exclüsives 101', href: '/pages/exclusives' },
+    ],
+  },
   {
     title: 'Learn',
     links: [
@@ -49,15 +60,12 @@ export const navMenus = [
       { label: 'Contact Us', href: '/pages/contact' },
     ],
   },
-  {
-    title: 'Rewards',
-    links: [
-      { label: 'VIP Access', href: '/pages/vip' },
-      { label: 'Merch Store', href: '/collections/merch' },
-      { label: 'Refer a Friend', href: '/pages/refer' },
-      { label: 'Exclüsives 101', href: '/pages/exclusives' },
-    ],
-  },
+];
+
+export const navUtility = [
+  { label: 'Our Science', href: '/pages/our-science' },
+  { label: 'Find In Store', href: '/pages/find-in-store' },
+  { label: 'Ü Snacks', href: '/pages/usnacks' },
 ];
 
 /* ---------------------------------------------------------------- footer */
