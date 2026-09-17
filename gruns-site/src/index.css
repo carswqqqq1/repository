@@ -4,6 +4,7 @@
 @import "./styles/sections.css";
 @import "./styles/buybox.css";
 @import "./styles/game.css";
+@import "./styles/refinements.css";
 
 *,
 *::before,

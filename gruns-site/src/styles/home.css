@@ -204,7 +204,11 @@
   text-align: center; font-size: 12px; display: flex; flex-direction: column; gap: 4px;
   align-items: center; justify-content: center;
 }
-#home-page-root .trust-icon { font-size: 26px; }
+#home-page-root .trust-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
 
 /* ---------- birthday / buy box ---------- */
 #home-page-root .birthday { background: #fff; padding: 56px 28px; }

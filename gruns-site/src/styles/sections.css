@@ -17,7 +17,7 @@
 .hero__inner {
   display: grid;
   gap: 24px;
-  max-width: 1280px;
+  max-width: 1440px;
 }
 @media (min-width: 900px) {
   .hero {
@@ -28,7 +28,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 40px;
-    padding-inline: 80px;
+    padding-inline: clamp(20px, 5.6vw, 80px);
   }
 }
 
@@ -392,24 +392,27 @@
    ========================================================================== */
 .benefits {
   position: relative;
-  background: linear-gradient(180deg, var(--color-green) 0%, var(--color-green) 40%, #7cb02c 62%, var(--color-yellow) 82%, var(--color-yellow) 100%);
-  padding-top: 72px;
+  background: linear-gradient(180deg, var(--color-green) 0%, var(--color-green) 50%, #7cb02c 68%, var(--color-yellow) 86%, var(--color-yellow) 100%);
+  padding-top: clamp(96px, 26vw, 380px);
   overflow: hidden;
 }
 .benefits__words {
   position: relative;
   z-index: 2;
-  max-width: 1120px;
+  max-width: calc(1120px + 2 * var(--page-gutter));
   margin-inline: auto;
   padding-inline: var(--page-gutter);
   text-align: center;
 }
 .benefits__line {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 6.7vw, 6rem);
-  line-height: 1.12;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.7vw, 6rem);
+  line-height: 1;
   color: #fff;
   text-transform: uppercase;
+  /* the live site lets these lines run past the viewport on narrow screens */
+  white-space: nowrap;
   margin: 0;
 }
 .benefits__line:last-child {
@@ -487,7 +490,7 @@
 }
 @media (min-width: 900px) {
   .tested__inner {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+    grid-template-columns: minmax(0, 555px) minmax(0, 1fr);
     align-items: center;
     gap: 56px;
   }
@@ -526,23 +529,33 @@
   background: rgba(0, 0, 0, 0.28);
   padding: 22px 12px 18px;
   text-align: center;
-  min-height: 118px;
+  min-height: 132px;
 }
-.tested__callouts img {
-  width: 34px;
-  height: 34px;
+.tested__icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
 }
 .tested__callouts p {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
   font-size: 0.8125rem;
   line-height: 1.25;
-  max-width: 14ch;
+  font-weight: 500;
+}
+.tested__callouts strong {
+  font-weight: 700;
 }
 
 /* ==========================================================================
-   CTA banner — "Same Grüns. New Lower Price."
+   CTA banner — full-width yellow band ("Same Grüns. New Lower Price.")
    ========================================================================== */
 .ctabanner {
   position: relative;
+  width: 100%;
   overflow: hidden;
   background: var(--color-yellow);
   isolation: isolate;
@@ -554,18 +567,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  pointer-events: none;
 }
 .ctabanner__inner {
   display: grid;
-  gap: 20px;
-  align-items: center;
-  padding-block: 44px;
+  gap: 12px;
+  align-items: end;
+  padding-block: 40px 0;
 }
 @media (min-width: 900px) {
   .ctabanner__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+    align-items: center;
     padding-block: 0;
     min-height: 380px;
+  }
+}
+.ctabanner__copy {
+  padding-bottom: 28px;
+}
+@media (min-width: 900px) {
+  .ctabanner__copy {
+    padding-block: 56px;
   }
 }
 .ctabanner__heading {
@@ -582,11 +606,14 @@
 }
 .ctabanner__cta {
   height: 48px;
+  min-height: 48px;
   padding-inline: 28px;
   font-size: 1rem;
 }
 .ctabanner__media {
   align-self: end;
+  justify-self: center;
+  width: min(100%, 360px);
 }
 .ctabanner__media img {
   display: block;
@@ -595,12 +622,9 @@
 }
 @media (min-width: 900px) {
   .ctabanner__media {
-    position: relative;
-    margin-bottom: -2px;
-  }
-  .ctabanner__media img {
-    max-width: 560px;
-    margin-left: auto;
+    justify-self: end;
+    width: min(100%, 560px);
+    margin-bottom: 0;
   }
 }
 
@@ -620,9 +644,10 @@
   padding-inline: var(--page-gutter);
 }
 .socialfan__heading {
-  max-width: 880px;
+  max-width: 832px;
   margin: 0 auto;
   font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(2rem, 6.1vw, 5.5rem);
   line-height: 0.8;
   text-transform: uppercase;
