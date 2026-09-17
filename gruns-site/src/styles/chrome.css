@@ -303,6 +303,9 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 900px) {
@@ -319,6 +322,7 @@
 @media (min-width: 900px) {
   .footer-col {
     border-top: 0;
+    min-width: 8.5rem;
   }
 }
 
