@@ -1,0 +1,15 @@
+https://gruns-replica.wary-archaeopteryx.workers.dev
+
+Deployed via: npx wrangler@4 deploy --temporary
+Worker name: gruns-replica
+Deployed at: 2026-09-17T19:57Z (UTC)
+Version ID: cf724fd0-7863-4fc2-93c6-8dff28e6539e
+URL unchanged: temporary account "Wary Archaeopteryx" reused (same hostname).
+Includes: merge of cursor/gruns-live-visual-qa-c90d (members cream band, footer
+list-style/column widths, SocialIcons) with cursor/gruns-real-imagery-brand-font-381b
+(brand fonts, harvested photography, homepage chrome) into cursor/gruns-deploy-notes-44f7.
+Claim window: ~9 minutes from deploy time
+Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=fEfxoSwVWYbDsW6I15zywFIUJSwBQ3cVtWjNwq7WvYA
+
+Note: Cloudflare temporary accounts may return 403/challenge to curl and headless
+automation; real browsers pass the managed challenge automatically.
