@@ -244,6 +244,62 @@ const FLAVOR_CARDS = {
   },
 };
 
+const JUNIP_SUMMARY =
+  "Reviewers enthusiastically praise Grüns gummies for their delicious flavor and superior texture, often describing them as tasty treats that make daily nutrition enjoyable and easy to incorporate into routines. They highlight the product's effective benefits, including improved gut health and digestion relief, sustained energy boosts, and convenient travel-friendly packets, with specific appreciation for unique flavors like Firecracker Pops and sugar-free options.";
+
+const JUNIP_ITEMS = [
+  {
+    initials: "CG",
+    name: "Chase G",
+    ago: "3 minutes ago",
+    title: "Love the taste, obviously....",
+    body: "Love the taste, obviously. The popsicles are already good, and putting that taste in what is essentially the perfect supplement is a great idea.",
+    product: "Popsicle® Firecracker Grüns - Low Sugar / 28 Packs",
+  },
+  {
+    initials: "LW",
+    name: "Lowell W",
+    ago: "8 minutes ago",
+    title: "Tasty snack",
+    body: "The banana flavor is my favorite so far!  These delicious gummies are a great healthy snack for on the go!",
+    product: "Grüns Minions - Low Sugar / 28 Packs",
+  },
+  {
+    initials: "RL",
+    name: "Renee L",
+    ago: "19 minutes ago",
+    title: "Shipments",
+    body: "Absolutely love these chewies! I would love to know how to slow down the shipments! I have too many!",
+    product: "Grüns - Low Sugar / 84 Packs",
+  },
+  {
+    initials: "GS",
+    name: "Gina S",
+    ago: "26 minutes ago",
+    title: "Great taste and they...",
+    body: "Great taste and they work.",
+    product: "Grüns - Low Sugar / 28 Packs",
+  },
+  {
+    initials: "DM",
+    name: "Denise M",
+    ago: "30 minutes ago",
+    title: "I'm hesitant to purchase...",
+    body: "I'm hesitant to purchase items off Facebook or YouTube because they're usually nothing close to what they're advertised as",
+    product: "Grüns Raspberry Lemonade - Low Sugar / 28 Packs",
+  },
+];
+
+const junipSection = (overrides = {}) => ({
+  type: "junipReviews",
+  score: "4.75",
+  count: "106,484",
+  histogram: [88, 8, 2, 1, 1],
+  summary: JUNIP_SUMMARY,
+  items: JUNIP_ITEMS,
+  ...overrides,
+});
+
 const SHARED_FAQS = {
   arrive: {
     q: "When will my gummies arrive?",
@@ -364,6 +420,7 @@ export const PDP_PRODUCTS = {
         heading: "Join 1,000,000+ Others Filling Nutrition Gaps",
         tabs: REVIEW_TABS,
         reviews: ADULT_REVIEWS,
+        reel: true,
         disclaimer:
           "Testimonials featured in videos or other promotional materials may include individuals who have received compensation, free product, or other incentives.",
       },
@@ -410,6 +467,7 @@ export const PDP_PRODUCTS = {
           SHARED_FAQS.returns,
         ],
       },
+      junipSection(),
     ],
   },
 
@@ -642,6 +700,7 @@ export const PDP_PRODUCTS = {
           { q: "What if my child isn’t happy with Grüns?", a: SHARED_FAQS.returns.a },
         ],
       },
+      junipSection(),
     ],
   },
 
@@ -905,6 +964,7 @@ export const PDP_PRODUCTS = {
         heading: "Join 1,000,000+ Others Filling Nutrition Gaps",
         tabs: REVIEW_TABS,
         reviews: ADULT_REVIEWS,
+        reel: true,
         disclaimer:
           "Testimonials featured in videos or other promotional materials may include individuals who have received compensation, free product, or other incentives.",
       },
@@ -929,6 +989,7 @@ export const PDP_PRODUCTS = {
           SHARED_FAQS.returns,
         ],
       },
+      junipSection(),
     ],
   },
 };

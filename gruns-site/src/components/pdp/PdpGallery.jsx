@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { LabCheckIcon } from "./PdpIcons.jsx";
 
 export default function PdpGallery({ images, title, labTested }) {
   const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    setActive(0);
-  }, [images]);
+  const index = active < images.length ? active : 0;
 
   return (
     <div className="pdp-gallery">
@@ -17,7 +14,7 @@ export default function PdpGallery({ images, title, labTested }) {
               key={src}
               type="button"
               className="pdp-thumb"
-              aria-current={i === active}
+              aria-current={i === index}
               aria-label={`View image ${i + 1}`}
               onClick={() => setActive(i)}
             >
@@ -26,7 +23,7 @@ export default function PdpGallery({ images, title, labTested }) {
           ))}
         </div>
         <div className="pdp-gallery__main">
-          <img src={images[active]} alt={title} />
+          <img src={images[index]} alt={title} />
         </div>
       </div>
 

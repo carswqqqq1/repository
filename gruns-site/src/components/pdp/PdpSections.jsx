@@ -47,23 +47,21 @@ function Deficient({ section }) {
     .filter(Boolean)
     .join(" ");
 
-  const Heading = section.display ? "h2" : "h2";
-
   return (
     <section className={classes}>
       <div className="pdp-container--wide pdp-container">
         <div className="pdp-deficient__card">
-          <div>
-            <Heading className={section.display ? "pdp-display" : "pdp-h2"}>
+          <div className="pdp-deficient__copy">
+            <h2 className={section.display ? "pdp-display" : "pdp-h2"}>
               {section.heading}
-            </Heading>
+            </h2>
             <p className="pdp-deficient__sub">{section.sub}</p>
             <div className="pdp-stats">
               {section.stats.map((stat) => (
                 <Stat key={stat.value} stat={stat} center />
               ))}
             </div>
-            <div style={{ marginTop: "28px" }}>
+            <div className="pdp-deficient__action">
               <button type="button" className="pdp-btn pdp-btn--pop">
                 {section.cta}
               </button>
@@ -140,7 +138,7 @@ function Reviews({ section }) {
 
   return (
     <section className="pdp-reviews" id="reviews">
-      <div className="pdp-container pdp-container--wide">
+      <div className="pdp-container pdp-container--mid">
         {section.eyebrow ? (
           <div className="pdp-reviews__eyebrow">
             {section.eyebrowPlain ? null : (
@@ -189,6 +187,7 @@ function Reviews({ section }) {
             </div>
           ))}
         </div>
+        {section.reel ? <div className="pdp-reviews__reel" /> : null}
         <p className="pdp-reviews__disclaimer">{section.disclaimer}</p>
       </div>
     </section>
@@ -538,7 +537,205 @@ function LtoSteps({ section }) {
   );
 }
 
+function JunipStars({ score = 5 }) {
+  return (
+    <span className="junip-stars" aria-label={`${score} out of 5`}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <span key={i} className="junip-star">
+          <span
+            className="junip-star__fill"
+            style={{ width: `${Math.max(0, Math.min(1, score - i)) * 100}%` }}
+          >
+            <StarIcon />
+          </span>
+          <StarIcon />
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function JunipReviews({ section }) {
+  const [sort, setSort] = useState("Latest");
+  const [rating, setRating] = useState("Rating");
+  const [query, setQuery] = useState("");
+  const [photosOnly, setPhotosOnly] = useState(false);
+  const total = section.histogram.reduce((sum, n) => sum + n, 0) || 1;
+
+  return (
+    <section className="junip" id="customer-reviews">
+      <div className="junip__inner">
+        <h2 className="junip__heading">Real Customer Reviews</h2>
+
+        <div className="junip__summary">
+          <div className="junip__score">
+            <div className="junip__score-value">{section.score}</div>
+            <JunipStars score={Number(section.score)} />
+            <div className="junip__score-count">{section.count} reviews</div>
+          </div>
+          <div className="junip__histogram">
+            {section.histogram.map((count, i) => (
+              <div className="junip__hrow" key={5 - i}>
+                <span className="junip__hlabel">{5 - i}</span>
+                <span className="junip__htrack">
+                  <span
+                    className="junip__hfill"
+                    style={{ width: `${(count / total) * 100}%` }}
+                  />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="junip__says">
+          <div className="junip__says-head">
+            <strong>What customers say</strong>
+            <span className="junip__auto">
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M8 1.5l1.3 3.6 3.7 1.2-3.7 1.3L8 11.2 6.7 7.6 3 6.3l3.7-1.2L8 1.5zM3.4 10.6l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"
+                />
+              </svg>
+              Auto-generated
+            </span>
+          </div>
+          <p className="junip__says-body">{section.summary}</p>
+        </div>
+
+        <div className="junip__filters">
+          <label className="junip__search">
+            <input
+              type="search"
+              placeholder="Search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                d="M13 13l4 4M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11z"
+              />
+            </svg>
+          </label>
+          <label className="junip__select">
+            <select value={sort} onChange={(event) => setSort(event.target.value)}>
+              {["Latest", "Oldest", "Highest rating", "Lowest rating"].map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <span className="junip__select-prefix">Sort by:</span>
+            <CaretIcon />
+          </label>
+          <label className="junip__select junip__select--plain">
+            <select
+              value={rating}
+              onChange={(event) => setRating(event.target.value)}
+            >
+              {["Rating", "5", "4", "3", "2", "1"].map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <CaretIcon />
+          </label>
+          <label className="junip__check">
+            <input
+              type="checkbox"
+              checked={photosOnly}
+              onChange={(event) => setPhotosOnly(event.target.checked)}
+            />
+            Photos &amp; videos
+          </label>
+        </div>
+
+        <ul className="junip__list">
+          {section.items.map((item) => (
+            <li className="junip__item" key={`${item.name}-${item.title}`}>
+              <div className="junip__who">
+                <span className="junip__avatar">{item.initials}</span>
+                <div>
+                  <div className="junip__name">
+                    {item.name}
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="currentColor"
+                        d="M3 6h10v8H3V6zm1.5-3.5h3V5h-3V2.5zm4.5 0h3V5h-3V2.5zM2 5h12v1.5H2V5z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="junip__verified">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <circle cx="8" cy="8" r="7" fill="currentColor" />
+                      <path
+                        fill="#fff"
+                        d="M6.9 10.6L4.6 8.3l.9-.9 1.4 1.4 3.2-3.2.9.9z"
+                      />
+                    </svg>
+                    Verified buyer
+                  </div>
+                </div>
+              </div>
+              <div className="junip__content">
+                <div className="junip__row">
+                  <JunipStars score={item.rating ?? 5} />
+                  <span className="junip__ago">{item.ago}</span>
+                </div>
+                <h3 className="junip__title">{item.title}</h3>
+                <p className="junip__body">{item.body}</p>
+                <p className="junip__for">Review for {item.product}</p>
+                <div className="junip__meta">
+                  <span className="junip__recommend">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="currentColor"
+                        d="M8 14S1.5 10.2 1.5 5.9A3.4 3.4 0 018 4.4a3.4 3.4 0 016.5 1.5C14.5 10.2 8 14 8 14z"
+                      />
+                    </svg>
+                    Would recommend
+                  </span>
+                  <span className="junip__helpful">
+                    Helpful
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        d="M8 3.5l5 8H3z"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        d="M8 12.5l-5-8h10z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="junip__more">
+          <button type="button" className="junip__more-btn">
+            See more reviews
+          </button>
+          <div className="junip__brand">
+            Reviewed on <strong>Junip</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const SECTION_MAP = {
+  junipReviews: JunipReviews,
   promoBand: PromoBand,
   deficient: Deficient,
   snackable: Snackable,
