@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SocialIcon from "./SocialIcons";
+import { SOCIAL_LINKS } from "../data/social";
 
 const FOOTER_COLUMNS = [
   {
@@ -49,11 +51,6 @@ const LEGAL_LINKS = [
   { label: "Shipping policy", to: "/policies/shipping-policy" },
 ];
 
-const SOCIAL = [
-  { label: "Instagram", href: "https://www.instagram.com/gruns/" },
-  { label: "TikTok", href: "https://www.tiktok.com/@gruns" },
-  { label: "Facebook", href: "https://www.facebook.com/gruns" },
-];
 
 function FooterColumn({ column }) {
   const [open, setOpen] = useState(false);
@@ -124,10 +121,15 @@ export default function Footer() {
             grüns
           </p>
           <ul className="social-links" aria-label="Social media">
-            {SOCIAL.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} target="_blank" rel="noreferrer">
-                  {item.label.slice(0, 2)}
+            {SOCIAL_LINKS.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={item.label}
+                >
+                  <SocialIcon id={item.id} />
                 </a>
               </li>
             ))}
