@@ -2,14 +2,14 @@ https://gruns-replica.wary-archaeopteryx.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-Deployed at: 2026-09-17T19:20Z (UTC)
-Version ID: 3c3608c7-1921-470d-a816-5176ee9f03d6
-Includes: homepage visual replica (~90% fidelity) from cursor/gruns-home-replica-c6ab; shop collections (/collections/shop-gruns, /collections/all, /collections/merch); landing pages; SPA wrangler assets config
-Claim window: ~46 minutes from deploy time (claim URL was shown in deploy output, not saved — redeploy with the same command if the temporary account expires)
+Deployed at: 2026-09-17T19:24Z (UTC)
+Version ID: 306c1862-4118-4843-81ce-dd11b3a6ec60
+Includes: merged cursor/gruns-visual-qa-fixes-0b2e (homepage fidelity, RENDITIONS.md, qa harness) into cursor/gruns-deploy-notes-44f7; shop collections; landing pages; SPA wrangler assets config
+Claim window: ~44 minutes from deploy time (claim URL was shown in deploy output, not saved — redeploy with the same command if the temporary account expires)
 
 Note: Cloudflare's temporary/trial accounts route traffic through a managed
 bot-challenge ("Just a moment...") for automated/non-browser requests (e.g. curl).
 Real browser traffic passes the JS challenge automatically. Verified the deploy
 serves the built React app (title "Grüns — Superfood Greens Gummies", real
-Grüns content) via direct asset checks and an initial unchallenged 200 response
-immediately after deploy.
+Grüns content) via production build asset grep (55% badge, vertical thumbs,
+flavor swatches in bundle) and wrangler deploy success.
