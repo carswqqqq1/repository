@@ -1,15 +1,19 @@
-https://gruns-replica.wary-archaeopteryx.workers.dev
+https://gruns-replica.level-citrus.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-Deployed at: 2026-09-17T19:57Z (UTC)
-Version ID: cf724fd0-7863-4fc2-93c6-8dff28e6539e
-URL unchanged: temporary account "Wary Archaeopteryx" reused (same hostname).
-Includes: merge of cursor/gruns-live-visual-qa-c90d (members cream band, footer
-list-style/column widths, SocialIcons) with cursor/gruns-real-imagery-brand-font-381b
-(brand fonts, harvested photography, homepage chrome) into cursor/gruns-deploy-notes-44f7.
-Claim window: ~9 minutes from deploy time
-Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=fEfxoSwVWYbDsW6I15zywFIUJSwBQ3cVtWjNwq7WvYA
+Deployed at: 2026-09-17T20:10Z (UTC) approx
+Version ID: c958ab7f-2e85-48a1-9911-4c9423ab01c0
+Branch: cursor/gruns-deploy-notes-44f7 (includes cursor/gruns-pdp-replica-304a PDP merge)
+
+PDP routes:
+  /products/gruns
+  /products/gruns-kids
+  /products/raspberry-lemonade-gruns
+  /products/gruns-firecracker
+
+Claim window: ~60 minutes from deploy time
+Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=L1xJsxDOr8KbEAzsNPIuqZ_vFEeHau1X2lr9rXlGGRs
 
 Note: Cloudflare temporary accounts may return 403/challenge to curl and headless
 automation; real browsers pass the managed challenge automatically.
