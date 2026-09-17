@@ -2,18 +2,14 @@ https://gruns-replica.level-citrus.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-Deployed at: 2026-09-17T20:10Z (UTC) approx
-Version ID: c958ab7f-2e85-48a1-9911-4c9423ab01c0
-Branch: cursor/gruns-deploy-notes-44f7 (includes cursor/gruns-pdp-replica-304a PDP merge)
-
-PDP routes:
-  /products/gruns
-  /products/gruns-kids
-  /products/raspberry-lemonade-gruns
-  /products/gruns-firecracker
-
-Claim window: ~60 minutes from deploy time
+Deployed at: 2026-09-17T20:12Z (UTC)
+Version ID: f59a2dc5-d506-43e9-a011-f9e7c9b69f70
+Previous URL (expired): https://gruns-replica.wary-archaeopteryx.workers.dev
+Claim window: ~59 minutes from deploy time
 Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=L1xJsxDOr8KbEAzsNPIuqZ_vFEeHau1X2lr9rXlGGRs
+
+Includes: home photography from public/images (87 assets), Retail Display + Work Sans fonts,
+rich mobile nav drawer, PromoDuo yellow band, UGC social fan + bear wordmark, footer brand row.
 
 Note: Cloudflare temporary accounts may return 403/challenge to curl and headless
 automation; real browsers pass the managed challenge automatically.
