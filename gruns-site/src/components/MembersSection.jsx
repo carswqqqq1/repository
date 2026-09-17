@@ -1,3 +1,6 @@
+import SocialIcon from "./SocialIcons";
+import { SOCIAL_LINKS } from "../data/social";
+
 export default function MembersSection() {
   return (
     <>
@@ -12,11 +15,19 @@ export default function MembersSection() {
         </div>
       </section>
       <section className="members" aria-label="Members">
-        <h2>1 MILLION MEMBERS.<br />WE&rsquo;VE BEEN<br />GETTING AROUND<br /> LATELY.</h2>
-        <div className="marquee" aria-hidden>
-          <span>★ 60+ INGREDIENTS ★ 21 VITAMINS ★ 6G FIBER ★ 1 PACK ★ GRÜNS ★</span>
-          <span>★ 60+ INGREDIENTS ★ 21 VITAMINS ★ 6G FIBER ★ 1 PACK ★ GRÜNS ★</span>
-        </div>
+        <h2>
+          <span className="members-lead">1 MILLION MEMBERS.</span>
+          WE&rsquo;VE BEEN<br />GETTING AROUND
+        </h2>
+        <ul className="members-social" aria-label="Social media">
+          {SOCIAL_LINKS.map((item) => (
+            <li key={item.id}>
+              <a href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+                <SocialIcon id={item.id} />
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );

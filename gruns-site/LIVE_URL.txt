@@ -2,14 +2,24 @@ https://gruns-replica.wary-archaeopteryx.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-Deployed at: 2026-09-17T19:24Z (UTC)
-Version ID: 306c1862-4118-4843-81ce-dd11b3a6ec60
-Includes: merged cursor/gruns-visual-qa-fixes-0b2e (homepage fidelity, RENDITIONS.md, qa harness) into cursor/gruns-deploy-notes-44f7; shop collections; landing pages; SPA wrangler assets config
-Claim window: ~44 minutes from deploy time (claim URL was shown in deploy output, not saved — redeploy with the same command if the temporary account expires)
+Deployed at: 2026-09-17T19:45Z (UTC)
+Version ID: b87d0bb8-b059-410c-bc93-235382756156
+URL unchanged: the temporary account "Wary Archaeopteryx" was reused, so the
+hostname is the same as the previous deploy.
+Includes: cursor/gruns-live-visual-qa-c90d (footer nav list-marker fix, footer
+column widths, reference-matched members section, real social glyphs) on top of
+cursor/gruns-deploy-notes-44f7
+Claim window: ~24 minutes from deploy time
+Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=fEfxoSwVWYbDsW6I15zywFIUJSwBQ3cVtWjNwq7WvYA
 
-Note: Cloudflare's temporary/trial accounts route traffic through a managed
-bot-challenge ("Just a moment...") for automated/non-browser requests (e.g. curl).
-Real browser traffic passes the JS challenge automatically. Verified the deploy
-serves the built React app (title "Grüns — Superfood Greens Gummies", real
-Grüns content) via production build asset grep (55% badge, vertical thumbs,
-flavor swatches in bundle) and wrangler deploy success.
+Note: Cloudflare's temporary/trial accounts put this hostname behind a managed
+bot challenge (`cf-mitigated: challenge`), which returns 403 to curl and to
+CDP-launched headless Chrome. A real browser passes it, but the interactive
+Turnstile checkbox must actually be clicked.
+
+Verified in a real browser: launched plain headful Chrome on DISPLAY=:1 (no
+--enable-automation, only --remote-debugging-port), clicked the Turnstile
+checkbox with xdotool, then captured the homepage over CDP through the cleared
+tab. Confirmed live DOM after this deploy: .members background rgb(255,249,237),
+.members-lead colour rgb(0,126,64), .footer-nav list-style none, 4 members
+social tiles, 4 footer social SVGs, star marquee removed from members.

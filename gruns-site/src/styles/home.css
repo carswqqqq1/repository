@@ -308,8 +308,12 @@
 #home-page-root .promo-card--green { background: var(--gruns-green); color: #fff; }
 #home-page-root .promo-card--yellow { background: var(--gruns-yellow); color: var(--gruns-ink); }
 #home-page-root .promo-card p { margin: 0 0 16px; }
-#home-page-root .members { background: var(--gruns-green); color: #fff; text-align: center; padding: 60px 20px 40px; overflow: hidden; }
-#home-page-root .members h2 { font-family: var(--font-display); font-size: clamp(28px, 4.4vw, 48px); line-height: 1.12; margin: 0 0 26px; }
+#home-page-root .members { background: var(--gruns-cream); color: var(--gruns-ink); text-align: center; padding: 76px 20px 60px; overflow: hidden; }
+#home-page-root .members h2 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.04; margin: 0 0 14px; }
+#home-page-root .members-lead { display: block; color: var(--gruns-green); }
+#home-page-root .members-social { display: flex; justify-content: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+#home-page-root .members-social a { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: var(--gruns-green); color: #fff; }
+#home-page-root .members-social svg { width: 17px; height: 17px; }
 #home-page-root .marquee { display: flex; gap: 0; white-space: nowrap; font-family: var(--font-display); color: var(--gruns-yellow); font-size: 20px; }
 #home-page-root .marquee span { padding-right: 12px; animation: slide 18s linear infinite; }
 
