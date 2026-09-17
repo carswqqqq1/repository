@@ -1,0 +1,13 @@
+https://gruns-replica.wary-archaeopteryx.workers.dev
+
+Deployed via: npx wrangler@4 deploy --temporary
+Worker name: gruns-replica
+Deployed at: 2026-09-17T19:06Z (UTC)
+Claim window: ~60 minutes from deploy time (claim URL was shown in deploy output, not saved — redeploy with the same command if the temporary account expires)
+
+Note: Cloudflare's temporary/trial accounts route traffic through a managed
+bot-challenge ("Just a moment...") for automated/non-browser requests (e.g. curl).
+Real browser traffic passes the JS challenge automatically. Verified the deploy
+serves the built React app (title "Grüns — Superfood Greens Gummies", real
+Grüns content) via direct asset checks and an initial unchallenged 200 response
+immediately after deploy.
