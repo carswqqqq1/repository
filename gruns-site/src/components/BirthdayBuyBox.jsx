@@ -1,8 +1,32 @@
 import { useState } from "react";
 
+/* Pack shots, gallery thumbs and flavour swatches are cropped out of the
+   gruns.co PDP captures — see scripts/crop-screenshots.py. */
 const FLAVORS = [
-  { id: "original", name: "Original", note: "Where fresh strawberries meets clean greens." },
-  { id: "shrek", name: "Berry Far Far Away", note: "Where juicy raspberry meets fresh blueberry.", tag: "Brand New" },
+  {
+    id: "original",
+    name: "Original",
+    note: "Where fresh strawberries meets clean greens.",
+    shot: "/images/pack-shot-original.jpg",
+    swatch: "/images/swatch-original.jpg",
+  },
+  {
+    id: "shrek",
+    name: "Berry Far Far Away",
+    note: "Where juicy raspberry meets fresh blueberry.",
+    tag: "Brand New",
+    shot: "/images/pack-shot-shrek.jpg",
+    swatch: "/images/swatch-shrek.jpg",
+  },
+];
+
+const THUMBS = [
+  { src: "/images/gallery-thumb-1.jpg", alt: "Grüns pack birthday price drop" },
+  { src: "/images/gallery-thumb-2.jpg", alt: "Supplement facts panel" },
+  { src: "/images/gallery-thumb-3.jpg", alt: "Trusted by 1,000,000+ customers" },
+  { src: "/images/gallery-thumb-4.jpg", alt: "What to expect after taking Grüns" },
+  { src: "/images/gallery-thumb-5.jpg", alt: "Customer survey results" },
+  { src: "/images/gallery-thumb-6.jpg", alt: "Digestion, immunity and focus benefits" },
 ];
 
 const FAQS = [
@@ -30,18 +54,21 @@ export default function BirthdayBuyBox() {
         {/* gallery */}
         <div className="gallery">
           <div className="gallery-row">
-            <ul className="thumbs" aria-hidden>
-              {Array.from({ length: 6 }).map((_, i) => (
-                <li key={i} className={i === 0 ? "is-active" : ""} />
+            <ul className="thumbs">
+              {THUMBS.map((t, i) => (
+                <li key={t.src} className={i === 0 ? "is-active" : ""}>
+                  <img src={t.src} width="67" height="81" loading="lazy" alt={t.alt} />
+                </li>
               ))}
             </ul>
             <div className="main-shot">
-              <div className="main-pack">
-                <span className="pack-word">grüns</span>
-                <span className="pack-sub">Superfood Gummies · {active.name}</span>
-                <span className="pack-bear" aria-hidden>🧸</span>
-              </div>
-              <div className="shot-badge"><span>Save Up to</span><b>55% Off</b><span>Your First Order</span></div>
+              <img
+                className="main-photo"
+                src={active.shot}
+                width="640"
+                height="640"
+                alt={`Grüns Superfood Gummies — ${active.name}`}
+              />
             </div>
           </div>
           <button className="btn btn--ghost btn--block">View Nutrition Label</button>
@@ -75,7 +102,7 @@ export default function BirthdayBuyBox() {
                 onClick={() => setFlavor(f.id)}
               >
                 {f.tag && <span className="flavor-tag">{f.tag}</span>}
-                <span className={`flavor-swatch flavor-swatch--${f.id}`} aria-hidden>grüns</span>
+                <img className="flavor-swatch" src={f.swatch} width="80" height="80" loading="lazy" alt="" />
                 {f.name}
               </button>
             ))}

@@ -1,18 +1,26 @@
+/* Card photography is cropped out of the gruns.co homepage capture — see
+   scripts/crop-screenshots.py. */
 const CARDS = [
   {
     title: "Delicious Flavor",
     text: "Tastes like a treat, works like a supplement. You'll actually look forward to taking it.",
     art: "flavor",
+    image: "/images/easy-flavor.jpg",
+    alt: "Man smiling as he holds an opened Grüns gummies pack",
   },
   {
     title: "Rip. Tip. Enjoy.",
     text: "Toss it in your bag. Pop it at your desk. No shaker, no water, no routine overhaul required.",
     art: "rip",
+    image: "/images/easy-rip.jpg",
+    alt: "Grüns pack tucked into a gym bag next to a dumbbell",
   },
   {
     title: "Daily Nutrition",
     text: "60+ ingredients. 20+ vitamins and minerals. One convenient pack.",
     art: "daily",
+    image: "/images/easy-daily.jpg",
+    alt: "Grüns single-serve pack surrounded by ingredient and certification callouts",
   },
 ];
 
@@ -25,10 +33,8 @@ export default function EasySection() {
       <div className="easy-grid">
         {CARDS.map((c) => (
           <article className="easy-card" key={c.title}>
-            <div className={`easy-art easy-art--${c.art}`} aria-hidden>
-              {c.art === "flavor" && <span className="easy-emoji">😋</span>}
-              {c.art === "rip" && <span className="easy-pack">grüns</span>}
-              {c.art === "daily" && <span className="easy-pack easy-pack--big">grüns<span>Superfoods</span></span>}
+            <div className={`easy-art easy-art--${c.art}`}>
+              <img src={c.image} width="398" height="298" loading="lazy" alt={c.alt} />
             </div>
             <h3>{c.title}</h3>
             <p>{c.text}</p>

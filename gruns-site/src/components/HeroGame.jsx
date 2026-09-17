@@ -47,26 +47,14 @@ export default function HeroGame() {
   return (
     <section className="hero" aria-label="Try Your Luck game">
       {/* left art panel */}
-      <div className="hero-art" aria-hidden>
-        <div className="hero-blob" />
-        <span className="spark spark--1">✦</span>
-        <span className="spark spark--2">✦</span>
-        <span className="spark spark--3">✦</span>
-        <div className="gummy gummy--1"><i /><i /><i /></div>
-        <div className="gummy gummy--2"><i /><i /><i /></div>
-        <div className="gummy gummy--3"><i /><i /><i /></div>
-        <div className="hero-person">
-          <div className="hero-hair" />
-          <div className="hero-shoulders" />
-          <div className="hero-face">
-            <span className="eye eye--l" /><span className="eye eye--r" />
-            <span className="smile" />
-          </div>
-          <div className="hero-pack">
-            <span className="hero-pack-bear">🐻</span>
-            <span className="hero-pack-word">grüns</span>
-          </div>
-        </div>
+      <div className="hero-art">
+        <img
+          className="hero-photo"
+          src="/images/hero-art.webp"
+          width="830"
+          height="925"
+          alt="Smiling woman biting into a single-serve Grüns superfood greens gummies pack, surrounded by floating gummy bears"
+        />
       </div>
 
       {/* right game panel */}

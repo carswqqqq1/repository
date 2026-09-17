@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import { PRODUCTS } from "../data/products";
 
-function Pack({ pack, badge, sub }) {
-  return (
-    <div className={`pack pack--${pack}`}>
-      <span className="pack-badge">{badge}</span>
-      <span className="pack-word">grüns</span>
-      <span className="pack-sub">{sub}</span>
-      <span className="pack-bear" aria-hidden>🧸</span>
-    </div>
-  );
-}
+/* Pouch tiles cropped out of the gruns.co homepage capture — see
+   scripts/crop-screenshots.py. Keyed off product id so the carousel keeps
+   working if the catalog gains or loses entries. */
+const PACK_TILES = {
+  "original-adults": "/images/pack-original-adults.jpg",
+  "shrek-adults": "/images/pack-shrek-adults.jpg",
+  "original-kids": "/images/pack-original-kids.jpg",
+  "shrek-kids": "/images/pack-shrek-kids.jpg",
+};
 
 export default function ProductCarousel() {
   return (
@@ -25,7 +24,14 @@ export default function ProductCarousel() {
           <article className="product-card" key={p.id}>
             <div className="product-media" style={{ background: p.wash }}>
               {p.tag && <span className="product-tag">{p.tag}</span>}
-              <Pack pack={p.pack} badge={p.badge} sub={p.sub} />
+              <img
+                className="product-photo"
+                src={PACK_TILES[p.id]}
+                width="262"
+                height="260"
+                loading="lazy"
+                alt={`${p.name} pouch — ${p.sub}`}
+              />
             </div>
             <h3 className="product-name">{p.name}</h3>
             <p className="product-price">Starts at {p.price} <s>{p.compareAt}</s></p>
