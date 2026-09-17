@@ -10,7 +10,7 @@
 .hc-announcement { height:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; background:#006532; font-size:11px; line-height:1.2; }
 .hc-announcement b { color:#ffcf2e; }
 .hc-header { height:69px; display:flex; align-items:center; justify-content:space-between; padding:0 5%; }
-.hc-logo { display:inline-flex; padding:4px 17px 7px; border-radius:30px; color:white; background:#a8c3b5; font-size:25px; line-height:1; font-style:italic; font-weight:800; text-decoration:none; }
+.hc-header .hc-logo { display:inline-flex; padding:4px 17px 7px; border-radius:30px; color:white; background:#a8c3b5; box-shadow:none; font-size:25px; line-height:1; font-style:italic; font-weight:800; text-decoration:none; }
 .hc-header>div { display:flex; align-items:center; padding:3px; border-radius:30px; background:#a8c3b5; }
 .hc-header a { padding:8px 19px; border-radius:25px; color:#08180e; background:var(--yellow); box-shadow:0 0 6px #556d61; font-size:11px; font-weight:700; text-decoration:none; }
 .hc-header button { width:34px; height:30px; border:0; color:white; background:transparent; font-size:18px; }

@@ -137,6 +137,11 @@ function Buybox() {
           <div className="fo-assurances"><span>◉<br />30-Day Money-Back Guarantee</span><span>⌁<br />Clinically and 3rd party tested</span><span>✚<br />HSA/FSA eligible</span></div>
           <div className="fo-details">{['Why Grüns?','Ingredients & Allergies','Low Sugar vs. Sugar-Free','Science & Certifications','Directions','Benefits'].map(x=><details key={x}><summary>{x}<b>＋</b></summary><p>Comprehensive, convenient daily nutrition made from clean, carefully tested ingredients.</p></details>)}</div>
           <h3>Packed With</h3><div className="fo-packed">🥦 Whole Veggies　🍇 Whole Fruits　💊 Vitamins & Minerals　🍄 Super Mushrooms</div>
+          <section className="fo-supplement">
+            <header><h3>Grüns</h3><b>Supplement Facts</b><span>Serving size: One Pack (20g)</span></header>
+            {[['Calories','50'],['Dietary Fiber','6g'],['Vitamin A','100%'],['Vitamin C','103%'],['Vitamin D3','100%'],['Vitamin E','100%'],['Vitamin B6','100%'],['Vitamin B12','100%'],['Biotin','100%'],['Folate','100%'],['Iron','25%'],['Zinc','25%'],['Selenium','25%'],['Vitamin K2','120mcg']].map(([name,value])=><div key={name}><span>{name}</span><b>{value}</b></div>)}
+            <p><b>Core Nutrients Blend</b><br />Whole food fruits and vegetables, organic greens, adaptogens, antioxidants, prebiotics, super mushrooms, vitamins and minerals.</p>
+          </section>
         </div>
       </div>
     </section>
@@ -146,9 +151,32 @@ function Buybox() {
 function LowerSections() {
   return (
     <>
+      <section className="fo-evidence">
+        <div className="fo-evidence-heading"><p>REAL PEOPLE. REAL ROUTINES.</p><h2>Small habit.<br />Whole-body difference.</h2><p>Grüns makes comprehensive nutrition easy enough to take every day and powerful enough to notice.</p></div>
+        <div className="fo-evidence-cards">
+          <article><b>95%</b><h3>stay consistent</h3><p>Most members take Grüns at least four to six times per week.</p></article>
+          <article><b>67%</b><h3>feel healthier</h3><p>Customers report improved overall health and well-being.</p></article>
+          <article><b>67%</b><h3>digest better</h3><p>Daily users report better, more regular digestion.</p></article>
+        </div>
+        <div className="fo-evidence-strip"><span>60+ INGREDIENTS</span><span>21 VITAMINS & MINERALS</span><span>6G FIBER</span><span>ONE DAILY PACK</span></div>
+      </section>
       <section className="fo-shrek">
         <div><h2>Going fast.<br />No restocks planned.</h2><p>Stock up on Berry Far Far Away Adults before it's gone.</p><Button children="Shop Now" /></div>
         <img src={cdn('Group_1984079150.webp', 800)} alt="Shrek x Grüns" />
+      </section>
+      <section className="fo-voices">
+        <p className="fo-kicker">OVER 100,000 FIVE-STAR REVIEWS</p>
+        <h2>Feeling good looks<br />different on everyone.</h2>
+        <div className="fo-voice-grid">
+          {[
+            ['“No afternoon crash”','I have steady energy and feel more focused through busy workdays.'],
+            ['“My easiest healthy habit”','One pack goes everywhere with me. No powders and no cleanup.'],
+            ['“My gut finally feels calm”','I feel lighter, less bloated, and much more regular.'],
+            ['“They actually taste great”','Like fruit snacks, except I know I am filling real nutrition gaps.'],
+            ['“Replaced my vitamin shelf”','One delicious pack instead of a handful of pills every morning.'],
+            ['“Worth sticking with”','I am finally consistent because taking Grüns never feels like a chore.'],
+          ].map(([title,text],i)=><article key={title}><div className={`fo-voice-image v${i+1}`}><span>grüns</span></div><Stars /><h3>{title}</h3><p>{text}</p><b>{['Taylor M.','Amelia R.','Jordan K.','Chris L.','Morgan S.','Jamie W.'][i]}</b></article>)}
+        </div>
       </section>
       <section className="fo-story">
         <h2>Grüns fit into<br />real lives & routines.</h2>
