@@ -2,26 +2,14 @@ https://gruns-replica.level-citrus.workers.dev
 
 Deployed via: npx wrangler@4 deploy --temporary
 Worker name: gruns-replica
-<<<<<<< HEAD
 Deployed at: 2026-09-17T20:12Z (UTC)
 Version ID: f59a2dc5-d506-43e9-a011-f9e7c9b69f70
 Previous URL (expired): https://gruns-replica.wary-archaeopteryx.workers.dev
-Claim window: ~59 minutes from deploy time
-Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=L1xJsxDOr8KbEAzsNPIuqZ_vFEeHau1X2lr9rXlGGRs
 
 Includes: home photography from public/images (87 assets), Retail Display + Work Sans fonts,
 rich mobile nav drawer, PromoDuo yellow band, UGC social fan + bear wordmark, footer brand row.
+Merged cursor/gruns-real-imagery-brand-font-381b (trust outline SVGs, full-width yellow promo,
+390px tap targets, refinements.css polish).
 
-=======
-Deployed at: 2026-09-17T19:57Z (UTC)
-Version ID: cf724fd0-7863-4fc2-93c6-8dff28e6539e
-URL unchanged: temporary account "Wary Archaeopteryx" reused (same hostname).
-Includes: merge of cursor/gruns-live-visual-qa-c90d (members cream band, footer
-list-style/column widths, SocialIcons) with cursor/gruns-real-imagery-brand-font-381b
-(brand fonts, harvested photography, homepage chrome) into cursor/gruns-deploy-notes-44f7.
-Claim window: ~9 minutes from deploy time
-Claim URL: https://dash.cloudflare.com/claim-preview?claimToken=fEfxoSwVWYbDsW6I15zywFIUJSwBQ3cVtWjNwq7WvYA
-
->>>>>>> origin/cursor/gruns-real-imagery-brand-font-381b
 Note: Cloudflare temporary accounts may return 403/challenge to curl and headless
 automation; real browsers pass the managed challenge automatically.
