@@ -1,0 +1,4 @@
+/* Reset leftovers from Vite template */
+#root {
+  min-height: 100vh;
+}
