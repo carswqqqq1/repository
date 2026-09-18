@@ -1,0 +1,44 @@
+.content-page {
+  padding: 3rem 0 5rem;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 204, 47, 0.25), transparent 35%),
+    var(--color-neutral-off-white);
+  min-height: 60vh;
+}
+
+.content-page__inner {
+  max-width: 760px;
+}
+
+.content-page__eyebrow {
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+  color: var(--color-green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.content-page h1 {
+  margin: 0 0 0.75rem;
+  color: var(--color-green-strong);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.content-page__lead {
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--color-fg-primary);
+}
+
+.content-page p {
+  line-height: 1.55;
+  color: var(--color-fg-secondary);
+}
+
+.content-page__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}

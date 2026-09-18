@@ -1,0 +1,23 @@
+.cart-page {
+  padding: 4rem 0 6rem;
+  background: var(--color-neutral-off-white);
+  min-height: 50vh;
+}
+
+.cart-page__inner {
+  max-width: 640px;
+  text-align: center;
+}
+
+.cart-page h1 {
+  color: var(--color-green-strong);
+  margin-bottom: 0.75rem;
+}
+
+.cart-page__actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}

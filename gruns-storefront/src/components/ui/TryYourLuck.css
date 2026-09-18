@@ -1,0 +1,154 @@
+.luck-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(10, 25, 18, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  animation: fadeUp 0.35s ease;
+}
+
+.luck-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
+
+.luck-modal__panel {
+  width: min(100%, 980px);
+  min-height: min(88vh, 620px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #fff7df 0%, #fff7df 42%, #7ed957 70%, #00572c 100%);
+  position: relative;
+}
+
+.luck-modal__art {
+  position: relative;
+  overflow: hidden;
+}
+
+.luck-modal__art > img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+
+.luck-modal__gummy {
+  position: absolute;
+  width: 140px;
+  bottom: 8%;
+  left: 8%;
+  animation: floaty 3.5s ease-in-out infinite;
+}
+
+.luck-modal__game {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #0a1912;
+}
+
+.luck-modal__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--color-green-strong);
+  font-size: 1.6rem;
+}
+
+.luck-modal__game h2 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.luck-modal__sub {
+  margin: 0 0 1.25rem;
+}
+
+.luck-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(70px, 96px));
+  gap: 0.7rem;
+}
+
+.luck-card {
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  border: 1.5px solid rgba(0, 87, 44, 0.35);
+  background: #fff;
+  position: relative;
+  perspective: 600px;
+  padding: 0;
+}
+
+.luck-card__front,
+.luck-card__back {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  backface-visibility: hidden;
+  transition: transform 0.35s ease;
+  font-weight: 800;
+  color: var(--color-green-strong);
+}
+
+.luck-card__front {
+  font-size: 1.8rem;
+}
+
+.luck-card__back {
+  font-size: 0.78rem;
+  transform: rotateY(180deg);
+  background: var(--color-green-weakest);
+  border-radius: 14px;
+  padding: 0.4rem;
+}
+
+.luck-card.is-flipped .luck-card__front {
+  transform: rotateY(180deg);
+}
+
+.luck-card.is-flipped .luck-card__back {
+  transform: rotateY(0);
+}
+
+.luck-modal__win {
+  margin-top: 1.25rem;
+}
+
+.luck-modal__win p {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 860px) {
+  .luck-modal__panel {
+    grid-template-columns: 1fr;
+    background: linear-gradient(180deg, #fff7df 55%, #a8e063 100%);
+  }
+
+  .luck-modal__art {
+    display: none;
+  }
+
+  .luck-modal__close {
+    left: 1rem;
+    right: auto;
+  }
+}
